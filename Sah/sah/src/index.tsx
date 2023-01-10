@@ -1,23 +1,60 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./components/Header";
 import "./index.css";
 import Home from "./pages/Home";
 import { Survey } from "./pages/Survey";
+import { Results } from "./pages/Results";
+import { Freelances } from "./pages/Freelances";
+
 import reportWebVitals from "./reportWebVitals";
+import { Theme } from "./config/Theme";
+import { DefaultTheme } from "./config/DefaultTheme";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Routes } from "./Routes";
+import { MainLayout } from "./components/MainLayout";
+import Typography from '@mui/material/Typography';
+import Error404 from "./components/Error404";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+const AllRoutes = [
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/survey/:id",
+        element: <Survey />,
+      },
+      {
+        path: "/result",
+        element: <Results />,
+      },
+      {
+        path: "/freelances",
+        element: <Freelances />,
+      },
+    ],
+  },
+  {
+    path:"*",
+    element:<Error404/>
+  }
+];
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/survey" element={<Survey />} />
-      </Routes>
+      <ThemeProvider theme={createTheme({ ...DefaultTheme, ...Theme })}>
+        <Routes routes={AllRoutes} />
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
