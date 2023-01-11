@@ -6,7 +6,7 @@ import "./index.css";
 import Home from "./pages/Home";
 import { Survey } from "./pages/Survey";
 import { Results } from "./pages/Results";
-import { Freelances } from "./pages/Freelances";
+import { Freelances } from "./pages/freelances/Freelances";
 
 import reportWebVitals from "./reportWebVitals";
 import { Theme } from "./config/Theme";
