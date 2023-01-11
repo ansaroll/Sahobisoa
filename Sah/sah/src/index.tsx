@@ -16,46 +16,15 @@ import { Routes } from "./Routes";
 import { MainLayout } from "./components/MainLayout";
 import Typography from '@mui/material/Typography';
 import Error404 from "./components/Error404";
+import { App } from "./App";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-const AllRoutes = [
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/survey/:id",
-        element: <Survey />,
-      },
-      {
-        path: "/result",
-        element: <Results />,
-      },
-      {
-        path: "/freelances",
-        element: <Freelances />,
-      },
-    ],
-  },
-  {
-    path:"*",
-    element:<Error404/>
-  }
-];
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProvider theme={createTheme({ ...DefaultTheme, ...Theme })}>
-        <Routes routes={AllRoutes} />
-      </ThemeProvider>
-    </BrowserRouter>
+    <App/>
   </React.StrictMode>
 );
 
