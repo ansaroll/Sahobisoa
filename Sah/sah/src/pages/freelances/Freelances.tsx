@@ -2,49 +2,62 @@ import { Container } from "@mui/system";
 import { Card } from "../../components/Card";
 import styled from "styled-components";
 
+const url = 'https://picsum.photos/300/300'
+
 const freelanceProfiles = [
   {
     name: "Jane Doe",
     jobTitle: "Devops",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:false
   },
   {
     name: "John Doe",
     jobTitle: "Developpeur frontend",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:true
   },
   {
     name: "Jeanne Biche",
     jobTitle: "Développeuse Fullstack",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:false
+
   }, {
     name: "Jane Doe",
     jobTitle: "Devops",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:false
+
   },
   {
     name: "John Doe",
     jobTitle: "Developpeur frontend",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:false
   },
   {
     name: "Jeanne Biche",
     jobTitle: "Développeuse Fullstack",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:true
   }, {
     name: "Jane Doe",
     jobTitle: "Devops",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:false
   },
   {
     name: "John Doe",
     jobTitle: "Developpeur frontend",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:false
   },
   {
     name: "Jeanne Biche",
     jobTitle: "Développeuse Fullstack",
-    picture: "/assets/profile.png",
+    picture: 'https://picsum.photos/300/300',
+    isActive:false
   },
 ];
 
@@ -65,6 +78,7 @@ export const Freelances = () => {
             label={profile.jobTitle}
             picture={profile.picture}
             title={profile.name}
+            isActive={profile.isActive}
           />
         ))}
       </CardsContainer>

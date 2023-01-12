@@ -17,8 +17,8 @@ import { ThemeProvider } from '@mui/material/styles';
 
 
 const pages = [
-  { name: "Survey", link: "survey/43" },
-  { name: "Results", link: "result" },
+  { name: "Accueil", link: "/" },
+  { name: "Profils", link: "#" },
   { name: "Freelances", link: "freelances" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
