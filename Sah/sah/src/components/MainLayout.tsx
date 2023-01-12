@@ -1,6 +1,6 @@
-import { Box, CircularProgress, CssBaseline, Grid, useTheme, Container } from "@mui/material"
-import React, { Suspense, useEffect, useMemo } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router";
+import { CircularProgress, CssBaseline, Grid, Container } from "@mui/material"
+import React, { Suspense} from "react";
+import { Outlet } from "react-router";
 import Header from "./Header";
 
 export const MainLayout = (props: Props) => {

@@ -1,3 +1,4 @@
+import { Container } from "@mui/system";
 import { Card } from "../../components/Card";
 import styled from "styled-components";
 
@@ -16,7 +17,7 @@ const freelanceProfiles = [
     name: "Jeanne Biche",
     jobTitle: "Développeuse Fullstack",
     picture: "/assets/profile.png",
-  },  {
+  }, {
     name: "Jane Doe",
     jobTitle: "Devops",
     picture: "/assets/profile.png",
@@ -30,7 +31,7 @@ const freelanceProfiles = [
     name: "Jeanne Biche",
     jobTitle: "Développeuse Fullstack",
     picture: "/assets/profile.png",
-  },  {
+  }, {
     name: "Jane Doe",
     jobTitle: "Devops",
     picture: "/assets/profile.png",
@@ -55,7 +56,7 @@ const CardsContainer = styled.div`
 `;
 export const Freelances = () => {
   return (
-    <div>
+    <Container maxWidth="lg">
       <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
       <CardsContainer>
         {freelanceProfiles.map((profile, index) => (
@@ -67,6 +68,6 @@ export const Freelances = () => {
           />
         ))}
       </CardsContainer>
-    </div>
+    </Container>
   );
 };
