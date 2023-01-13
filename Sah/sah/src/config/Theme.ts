@@ -12,5 +12,35 @@ export const Theme:ThemeOptions ={
             main: "#1E293B",
             light:"#FFFFFF"
         }
-    }
+    },
+    typography: {
+        fontFamily: [
+            // "Inter",
+            "Circe",
+            "Roboto",
+            "Helvetica Neue",
+            "Arial",
+            "sans-serif"
+        ].join(","),
+        h1: {
+        },
+        h2: { 
+        },
+        h3: {
+        },
+        h4: {
+        },
+        h5: {
+        },
+        h6: {
+        },
+        subtitle1: {
+        },
+        subtitle2: {
+        },
+        body1: {
+        },
+        body2: {
+        },
+    },
 }
