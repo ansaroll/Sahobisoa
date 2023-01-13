@@ -69,7 +69,7 @@ const CardsContainer = styled.div`
 `;
 export const Freelances = () => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{mb:10}}>
       <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
       <CardsContainer>
         {freelanceProfiles.map((profile, index) => (

@@ -7,9 +7,9 @@ export const Card = ({ label, title, picture, isActive }: Props) => {
   const theme = useTheme();
   return (
     <CardWrapper isActive={isActive} theme={theme}>
-      <CardLabel>{label}</CardLabel>
+      <CardLabel theme={theme}>{label}</CardLabel>
       <CardImage src={picture} alt="freelance" height={80} width={80} />
-      <span>{title}</span>
+      <span style={{color: theme.palette.primary.light}}>{title}</span>
     </CardWrapper>
   );
 };
