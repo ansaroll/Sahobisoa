@@ -2,61 +2,61 @@ import { Container } from "@mui/system";
 import { Card } from "../../components/Card";
 import styled from "styled-components";
 
-const url = 'https://picsum.photos/300/300'
+const url = "https://i.pravatar.cc/500"
 
 const freelanceProfiles = [
   {
     name: "Jane Doe",
     jobTitle: "Devops",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/300",
     isActive:false
   },
   {
     name: "John Doe",
     jobTitle: "Developpeur frontend",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/200",
     isActive:true
   },
   {
     name: "Jeanne Biche",
     jobTitle: "Développeuse Fullstack",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/400",
     isActive:false
 
   }, {
     name: "Jane Doe",
     jobTitle: "Devops",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/450",
     isActive:false
 
   },
   {
     name: "John Doe",
     jobTitle: "Developpeur frontend",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/350",
     isActive:false
   },
   {
     name: "Jeanne Biche",
     jobTitle: "Développeuse Fullstack",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/250",
     isActive:true
   }, {
     name: "Jane Doe",
     jobTitle: "Devops",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/255",
     isActive:false
   },
   {
     name: "John Doe",
     jobTitle: "Developpeur frontend",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/355",
     isActive:false
   },
   {
     name: "Jeanne Biche",
     jobTitle: "Développeuse Fullstack",
-    picture: 'https://picsum.photos/300/300',
+    picture: "https://i.pravatar.cc/356",
     isActive:false
   },
 ];
