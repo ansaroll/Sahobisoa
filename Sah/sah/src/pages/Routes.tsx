@@ -1,9 +1,9 @@
-import Home from "./Home";
 import { Survey } from "./Survey";
 import { Results } from "./Results";
 import { Freelances } from "./freelances/Freelances";
 import { MainLayout } from "../components/MainLayout";
 import Error404 from "../components/Error404";
+import Home from "./home/Home";
 
 export const AllRoutes = [
     {

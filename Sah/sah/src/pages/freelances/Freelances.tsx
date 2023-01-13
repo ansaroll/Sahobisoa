@@ -64,7 +64,7 @@ const freelanceProfiles = [
 const CardsContainer = styled.div`
   display: grid;
   gap: 24px;
-  grid-template-rows: 250px 300px;
+  grid-template-rows: repeat(3, 300px);;
   grid-template-columns: repeat(3, 1fr);
 `;
 export const Freelances = () => {

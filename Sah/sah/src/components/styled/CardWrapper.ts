@@ -13,9 +13,11 @@ export const CardWrapper = styled(Box)<{isActive?:boolean}>`
     border-radius: 30px;
     width: 350px;
     transition: 200ms;
-    ${props => props?.isActive && `background-color: ${colors.successDark};`} 
+    transition:all 0.3s ease-in-out;
+    box-shadow: 2px 2px 20px #e2e3e9;
+    ${props => props?.isActive && `background-color: ${colors.secondary};`} 
     &:hover {
         cursor: pointer;
-        box-shadow: 2px 2px 10px #e2e3e9;
+        box-shadow: 8px 8px 20px 10px #e2e3e9;
     }
 `

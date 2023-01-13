@@ -1,0 +1,42 @@
+.home-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.left-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-text {
+    text-align: center;
+    position: absolute;
+    width: 552px;
+    height: 249px;
+    left: 163px;
+    top: 376px;
+
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 160.5%;
+    /* or 80px */
+
+
+    color: #2F2E41;
+}
+
+.centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
