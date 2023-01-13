@@ -1,7 +1,7 @@
 .home-page {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
+    padding-top: 5%;
 }
 
 .left-section {
@@ -18,7 +18,6 @@
 
 .centered-text {
     text-align: center;
-    position: absolute;
     width: 552px;
     height: 249px;
     left: 163px;
@@ -28,7 +27,6 @@
     font-style: normal;
     font-weight: 700;
     font-size: 50px;
-    line-height: 160.5%;
     /* or 80px */
 
 
