@@ -60,6 +60,7 @@ function Header() {
               onClick={() => navigate("/")}
               sx={{
                 mr: 2,
+                mt:.3,
                 cursor: "pointer",
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
@@ -136,7 +137,7 @@ function Header() {
                 <Button
                   key={page.name}
                   onClick={() => navigate(page.link)}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{ color: "white", display: "block", pt:"12px" }}
                 >
                   {page.name}
                 </Button>
