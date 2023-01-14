@@ -1,0 +1,41 @@
+.profile-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
+  
+  .profile-picture {
+    width: 30%;
+    padding: 20px;
+
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  
+  .profile-info {
+    width: 80%;
+    padding: 20px;
+  }
+  
+  .profile-description {
+    margin-bottom: 20px;
+  }
+  
+  .profile-location {
+    margin-bottom: 20px;
+  }
+  
+  .profile-skills {
+    margin-bottom: 20px;
+  }
+  
+  .profile-skills ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
