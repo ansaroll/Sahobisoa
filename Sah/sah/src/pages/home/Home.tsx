@@ -9,7 +9,7 @@ const Home = () => {
         <p className="centered-text">Repérez vos besoins, on s’occupe du reste, avec les meilleurs talents</p>
       </div>
       <div className="right-section">
-        <img src={'/assets/illustration.svg'} alt="Illustration" className="centered-image" height="541px" />
+        <img src={'/assets/illustration.svg'} alt="Illustration" className="centered-image" height="480px" />
       </div>
     </div>
   );

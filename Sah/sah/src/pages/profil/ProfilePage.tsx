@@ -11,6 +11,7 @@ const ProfilePage = (props:Props) => {
       </div>
       <div className="profile-info">
         <div className="profile-description">
+          <h3>Moi de mon point de vue</h3>
           <p>{props.description}</p>
         </div>
         <div className="profile-location">
