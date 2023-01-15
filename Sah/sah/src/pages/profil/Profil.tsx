@@ -8,8 +8,8 @@ export const Profil = () => {
         image={user.image}
         name={user.name}
         description={user.description}
-        address1="Adresse 1"
-        address2="Adresse 2"
+        address1={user.address1}
+        address2={user.address2}
         skills={user.skills}
         isActive={user.isActive}
       />
@@ -27,6 +27,6 @@ const user = {
     skills: ["Maîtrise des langages de programmation web tels que HTML, CSS et JavaScript",
      "Connaissance des frameworks et des bibliothèques pour le développement web tels que React, Angular et Vue.js ",
       "Connaissance de l'architecture logicielle et des bases de données"],
-    isActive: true
+    isActive: false
 }
 

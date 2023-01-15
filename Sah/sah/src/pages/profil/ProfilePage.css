@@ -3,11 +3,12 @@
     flex-direction: row;
     justify-content: space-between;
     padding-top: 20px;
+    margin-bottom: 50px;
   }
   
   .profile-picture {
     width: 30%;
-    padding: 20px;
+    padding-inline: 20px;
 
   }
   
@@ -19,6 +20,9 @@
   .profile-info {
     width: 80%;
     padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
   }
   
   .profile-description {
@@ -39,3 +43,7 @@
     margin: 0;
   }
   
+  hr {
+    margin: 20px 0;
+    border-width: .5px;
+  }
