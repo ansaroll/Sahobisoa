@@ -1,4 +1,4 @@
-import { Survey } from "./Survey";
+import { Survey } from "./survey/Survey";
 import { Results } from "./Results";
 import { Freelances } from "./freelances/Freelances";
 import { MainLayout } from "../components/MainLayout";

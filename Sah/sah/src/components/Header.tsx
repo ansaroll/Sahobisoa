@@ -17,7 +17,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 
 const pages = [
   { name: "Profils", link: "/profil" },
-  { name: "Freelances", link: "freelances" },
+  { name: "Freelances", link: "/freelances" },
+  { name: "Survey", link: "/survey/3" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 

@@ -1,6 +1,7 @@
 import { Container } from "@mui/system";
 import { Card } from "../../components/Card";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const url = "https://i.pravatar.cc/500"
 
