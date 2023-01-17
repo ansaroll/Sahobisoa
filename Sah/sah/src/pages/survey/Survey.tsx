@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import colors from '../../utils/color'
 
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+
+
 const SurveyContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -42,44 +49,34 @@ export const Survey = () => {
   const [isDataLoading, setDataLoading] = useState(false)
   const [error, setError] = useState(false)
 
+   const queryClient = new QueryClient()
+
+  const { isLoading, data } = useQuery(['survey'], () =>{
+    return fetch(`http://localhost:8000/survey`).then(res => res.json())
+  })
+
   useEffect(() => {
-    async function fetchSurvey() {
-      setDataLoading(true)
-      try {
-        const response = await fetch(`http://localhost:8000/survey`)
-        const { surveyData } = await response.json()
-        setSurveyData(surveyData)
-      } catch (err) {
-        console.log(err)
-        setError(true)
-      } finally {
-        setDataLoading(false)
-      }
+    if (data) {
+      setSurveyData(data.surveyData)
     }
-    fetchSurvey()
-  }, [])
+    console.log({surveyData});
+    
+  }, [data])
 
-  if (error) {
-    return <span>Oups il y a eu un problème</span>
-
+  if (isLoading) {
+    return <CircularProgress />
   }
 
   return (
     <SurveyContainer>
-      {/* <QuestionTitle>Question {questionNumber}</QuestionTitle>
-      {isDataLoading ? (
-        <CircularProgress />
-      ) : (
-        <QuestionContent>{surveyData[questionNumberInt]}</QuestionContent>
-      )}
-      <LinkWrapper>
-        <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
-        {surveyData[questionNumberInt + 1] ? (
-          <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
-        ) : (
-          <Link to="/results">Résultats</Link>
-        )} */}
-      {/* </LinkWrapper> */}
+      {!isLoading && <QuestionTitle>Question {questionNumber}</QuestionTitle>}
+      {
+        !isLoading && 
+        <p>
+          {data[1]}
+        </p> 
+      }
+
     </SurveyContainer>
   )
 }
