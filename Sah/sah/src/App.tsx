@@ -7,6 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Routes } from "./Routes";
 import { AllRoutes } from "./pages/Routes";
 
+
 export const App = () => {
   return (
     <>
