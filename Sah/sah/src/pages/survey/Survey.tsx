@@ -2,9 +2,8 @@ import { CircularProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import colors from "../../utils/color";
-import { QueryClient, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { SurveyContainer, QuestionContent, LinkWrapper , QuestionTitle } from "../../components/styled/Atom";
 
 export const Survey = () => {
   const { id: questionNumber } = useParams();
@@ -52,30 +51,3 @@ export const Survey = () => {
 
 export default Survey;
 
-const SurveyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const QuestionTitle = styled.h2`
-  text-decoration: underline;
-  text-decoration-color: ${colors.primary};
-`;
-
-const QuestionContent = styled.span`
-  margin: 40px;
-  padding: 40px;
-  border: 1px solid ${colors.primary};
-  border-radius: 10px;
-`;
-
-const LinkWrapper = styled.div`
-  padding-top: 30px;
-  & a {
-    color: black;
-  }
-  & a:first-of-type {
-    margin-right: 20px;
-  }
-`;
