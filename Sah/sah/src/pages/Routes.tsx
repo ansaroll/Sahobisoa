@@ -20,7 +20,7 @@ export const AllRoutes = [
                 element: <Survey />,
             },
             {
-                path: "/result",
+                path: "/results",
                 element: <Results />,
             },
             {
