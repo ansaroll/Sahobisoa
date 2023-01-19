@@ -15,6 +15,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import BrightnessMediumIcon from '@mui/icons-material/BrightnessMedium';
 import { NightModeButton } from "./styled/Atom";
+import { useContext } from "react";
+import { ThemeContext } from "../utils/context";
 
 
 const pages = [
@@ -25,6 +27,10 @@ const pages = [
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
+
+  const { toggleTheme, theme } = useContext(ThemeContext)
+
+  alert('theme:' + theme)
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -148,7 +154,9 @@ function Header() {
             </Box>
 
             <Box sx={{ flexGrow: 0 }} display="flex" alignItems="center" gap={2}>
-              <NightModeButton>
+              <NightModeButton
+                onClick={() => toggleTheme()}
+              >
                 <BrightnessMediumIcon sx={{color:"primary.light"}} />
               </NightModeButton>
               <Tooltip title="Open settings">
