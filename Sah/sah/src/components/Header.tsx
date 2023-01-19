@@ -147,9 +147,9 @@ function Header() {
               ))}
             </Box>
 
-            <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 0 }} display="flex" alignItems="center" gap={2}>
               <NightModeButton>
-                <BrightnessMediumIcon />
+                <BrightnessMediumIcon sx={{color:"primary.light"}} />
               </NightModeButton>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
