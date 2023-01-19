@@ -28,3 +28,10 @@ export const LinkWrapper = styled.div`
     margin-right: 20px;
   }
 `;
+
+export const NightModeButton = styled.button`
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: ${colors.secondary};
+`

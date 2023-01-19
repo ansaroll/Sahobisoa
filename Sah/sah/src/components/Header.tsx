@@ -13,6 +13,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import BrightnessMediumIcon from '@mui/icons-material/BrightnessMedium';
+import { NightModeButton } from "./styled/Atom";
 
 
 const pages = [
@@ -146,6 +148,9 @@ function Header() {
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
+              <NightModeButton>
+                <BrightnessMediumIcon />
+              </NightModeButton>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
