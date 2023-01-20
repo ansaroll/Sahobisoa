@@ -29,8 +29,6 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 function Header() {
 
   const { toggleTheme, theme } = useContext(ThemeContext)
-
-  alert('theme:' + theme)
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null

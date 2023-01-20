@@ -14,10 +14,10 @@ export const CardWrapper = styled(Box)<{isActive?:boolean , theme?:Theme}>`
     width: 350px;
     transition: 200ms;
     transition:all 0.3s ease-in-out;
-    box-shadow: 2px 2px 20px #e2e3e9;
     // ${props => props?.isActive && `background-color: ${colors.successLight};`} 
     &:hover {
         cursor: pointer;
-        box-shadow: 8px 8px 20px 5px #e2e3e9;
+        transform: scale(1.015);
+        // box-shadow: 8px 8px 20px 5px ${colors.primaryLight};
     }
 `

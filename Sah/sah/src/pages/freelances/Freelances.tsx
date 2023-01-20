@@ -1,7 +1,9 @@
 import { Container } from "@mui/system";
 import { Card } from "../../components/Card";
 import styled from "styled-components";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { Typography } from "@mui/material";
+import { ThemeContext } from "../../utils/context";
 
 const url = "https://i.pravatar.cc/500"
 
@@ -69,9 +71,12 @@ const CardsContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
 `;
 export const Freelances = () => {
+
+  const { theme } = useContext(ThemeContext)
+
   return (
     <Container maxWidth="lg" sx={{mb:10}}>
-      <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
+      <Typography variant="h4" my={2} color={theme == 'dark' ? 'secondary.light' : "primary"}>Freelances 👩‍💻👨‍💻👩‍💻</Typography>
       <CardsContainer>
         {freelanceProfiles.map((profile, index) => (
           <Card

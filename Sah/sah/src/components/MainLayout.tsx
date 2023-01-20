@@ -1,4 +1,4 @@
-import { CircularProgress, CssBaseline, Grid, Container } from "@mui/material"
+import { CircularProgress, Grid, Container } from "@mui/material"
 import React, { Suspense} from "react";
 import { Outlet } from "react-router";
 import Header from "./Header";
@@ -9,7 +9,6 @@ export const MainLayout = (props: Props) => {
 
     return (
         <React.Fragment>
-            <CssBaseline />
             <GlobalStyle/>
             <Header/>
             <Suspense fallback={<CircularProgress />}>
