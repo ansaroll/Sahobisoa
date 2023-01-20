@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -34,15 +34,15 @@ export const Survey = () => {
 
   return (
     <SurveyContainer>
-      {!isLoading && <QuestionTitle>Question {questionNumber}</QuestionTitle>}
+      {!isLoading && <Typography className="text" variant="h3" mt={15} mb={5}>Question {questionNumber}</Typography>}
 
-      <QuestionContent>{surveyData[questionNumberInt]} </QuestionContent>
+      <QuestionContent className="text">{surveyData[questionNumberInt]} </QuestionContent>
       <LinkWrapper>
-        <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
+        <Link to={`/survey/${prevQuestionNumber}`}><span className="text"> ← Précédent</span></Link>
         {surveyData[questionNumberInt + 1] ? (
-          <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
+          <Link to={`/survey/${nextQuestionNumber}`}><span className="text">Suivant →</span></Link>
         ) : (
-          <Link to="/results">Résultats</Link>
+          <Link to="/results"><span className="text">Résultats 💡</span></Link>
         )}
       </LinkWrapper>
     </SurveyContainer>
