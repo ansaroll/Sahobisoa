@@ -3,7 +3,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { SurveyContainer, QuestionContent, LinkWrapper , QuestionTitle } from "../../components/styled/Atom";
+import {
+  SurveyContainer,
+  QuestionContent,
+  LinkWrapper,
+  QuestionTitle,
+} from "../../components/styled/Atom";
 
 export const Survey = () => {
   const { id: questionNumber } = useParams();
@@ -27,22 +32,34 @@ export const Survey = () => {
   if (isLoading) {
     return (
       <SurveyContainer>
-        <CircularProgress />;
+          <CircularProgress sx={{mt:15}} />;
       </SurveyContainer>
     );
   }
 
   return (
     <SurveyContainer>
-      {!isLoading && <Typography className="text" variant="h3" mt={15} mb={5}>Question {questionNumber}</Typography>}
+      {!isLoading && (
+        <Typography className="text" variant="h3" mt={15} mb={5}>
+          Question {questionNumber}
+        </Typography>
+      )}
 
-      <QuestionContent className="text">{surveyData[questionNumberInt]} </QuestionContent>
+      <QuestionContent className="text">
+        {surveyData[questionNumberInt]}{" "}
+      </QuestionContent>
       <LinkWrapper>
-        <Link to={`/survey/${prevQuestionNumber}`}><span className="text"> ← Précédent</span></Link>
+        <Link to={`/survey/${prevQuestionNumber}`}>
+          <span className="text"> ← Précédent</span>
+        </Link>
         {surveyData[questionNumberInt + 1] ? (
-          <Link to={`/survey/${nextQuestionNumber}`}><span className="text">Suivant →</span></Link>
+          <Link to={`/survey/${nextQuestionNumber}`}>
+            <span className="text">Suivant →</span>
+          </Link>
         ) : (
-          <Link to="/results"><span className="text">Résultats 💡</span></Link>
+          <Link to="/results">
+            <span className="text">Résultats 💡</span>
+          </Link>
         )}
       </LinkWrapper>
     </SurveyContainer>
@@ -50,4 +67,3 @@ export const Survey = () => {
 };
 
 export default Survey;
-
