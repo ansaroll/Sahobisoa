@@ -10,7 +10,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
-import { ThemeDarkLightProvider } from "./utils/context";
+import { SurveyProvider, ThemeDarkLightProvider } from "./utils/context";
 
 const queryClient = new QueryClient();
 export const App = () => {
@@ -19,9 +19,11 @@ export const App = () => {
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <ThemeDarkLightProvider>
-            <ThemeProvider theme={createTheme({ ...DefaultTheme, ...Theme })}>
-              <Routes routes={AllRoutes} />
-            </ThemeProvider>
+            <SurveyProvider>
+              <ThemeProvider theme={createTheme({ ...DefaultTheme, ...Theme })}>
+                <Routes routes={AllRoutes} />
+              </ThemeProvider>
+            </SurveyProvider>
           </ThemeDarkLightProvider>
         </QueryClientProvider>
       </BrowserRouter>

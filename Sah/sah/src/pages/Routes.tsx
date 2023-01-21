@@ -1,10 +1,10 @@
 import { Survey } from "./survey/Survey";
-import { Results } from "./Results";
 import { Freelances } from "./freelances/Freelances";
 import { MainLayout } from "../components/MainLayout";
 import Error404 from "../components/Error404";
 import Home from "./home/Home";
 import { Profil } from "./profil/Profil";
+import Results from "./results";
 
 export const AllRoutes = [
     {
