@@ -8,7 +8,6 @@ import { AllRoutes } from "./pages/Routes";
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from "@tanstack/react-query";
 import { SurveyProvider, ThemeDarkLightProvider } from "./utils/context";
 

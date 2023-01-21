@@ -1,6 +1,4 @@
 import { useContext } from "react";
-import styled, { useTheme } from "styled-components";
-import colors from "../../utils/color";
 import { JobTitle, ResultsTitle } from "../../components/styled/Atom";
 import { SurveyContext, ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
@@ -28,7 +26,7 @@ const Results = () => {
   const { answers } = useContext(SurveyContext);
   const queryParams = formatQueryParams(answers);
 
-  const { isLoading, data } = useQuery(["survey"], () => {
+  const { data } = useQuery(["survey"], () => {
     return fetch(`http://localhost:8000/results?${queryParams}`).then((res) =>
       res.json()
     );

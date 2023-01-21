@@ -7,7 +7,6 @@ import {
   SurveyContainer,
   QuestionContent,
   LinkWrapper,
-  QuestionTitle,
 } from "../../components/styled/Atom";
 
 export const Survey = () => {
