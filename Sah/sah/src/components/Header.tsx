@@ -26,7 +26,7 @@ const pages = [
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function Header() {
+const Header = () => {
 
   const { toggleTheme, theme } = useContext(ThemeContext)
   const navigate = useNavigate();
