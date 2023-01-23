@@ -32,9 +32,6 @@ const Results = () => {
     );
   });
 
-
-  console.log('resultDatas',data?.resultsData);
-
   return (
     <ResultsTitle theme={theme}>
       Les compétences dont vous avez besoin :
