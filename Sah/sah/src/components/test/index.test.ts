@@ -1,4 +1,4 @@
-import { formatJobList, formatQueryParams } from './'
+import { formatJobList, formatQueryParams } from '../../pages/results'
 
 
 describe('First test:sformatJobList', () => {
