@@ -1,7 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import Footer from "../Footer";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Header from "../Header";
-import Test from "./Test";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeDarkLightProvider } from "../../utils/context";
 
@@ -14,6 +12,9 @@ describe("Header test", () => {
         </ThemeDarkLightProvider>
       </BrowserRouter>
     );
-    const nightModeButton = screen.getByRole('button')
+    const nightModeButton = screen.getByTestId('night-mode-btn')
+    expect(nightModeButton.textContent).toBe('Changer de mode : ☀️')
+    fireEvent.click(nightModeButton)
+    expect(nightModeButton.textContent).toBe('Changer de mode : 🌙')
   });
 });
