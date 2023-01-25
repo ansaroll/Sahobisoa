@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "../../utils/color";
 
 
-export const CardWrapper = styled(Box)<{isActive?:boolean , theme?:Theme}>`
+export const CardWrapper = styled(Box)<{isactive?:string , theme?:Theme}>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,7 +14,7 @@ export const CardWrapper = styled(Box)<{isActive?:boolean , theme?:Theme}>`
     width: 350px;
     transition: 200ms;
     transition:all 0.3s ease-in-out;
-    // ${props => props?.isActive && `background-color: ${colors.successLight};`} 
+    // ${props => props?.isactive === 'true' && `background-color: ${colors.successLight};`} 
     &:hover {
         cursor: pointer;
         transform: scale(1.015);

@@ -82,3 +82,13 @@ export const LoaderWrapper = styled.div`
   display: flex;
   justify-content: center;
 `
+
+export const CardTitle = styled.div`
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+  font-size: 22px;
+  font-weight: normal;
+  align-self: center;
+  height: 25px;
+  display: flex;
+  align-items: center;
+`
