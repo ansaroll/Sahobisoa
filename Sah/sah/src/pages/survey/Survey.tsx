@@ -25,7 +25,6 @@ export const Survey = () => {
     if (data) {
       setSurveyData(data.surveyData);
     }
-    console.log({ surveyData });
   }, [data]);
 
   if (isLoading) {
