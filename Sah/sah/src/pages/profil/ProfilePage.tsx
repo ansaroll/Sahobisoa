@@ -1,48 +1,92 @@
-import React from 'react';
-import './ProfilePage.css';
+import React from "react";
+import "./ProfilePage.css";
+import { Grid, useTheme, Divider, Box } from "@mui/material";
 
-const ProfilePage = (props:Props) => {
+const ProfilePage = (props: Props) => {
+  const theme = useTheme();
   return (
-    <div className="profile-page">
-      <div className="profile-picture">
-        <img src={props.image} alt="Profile"  style={{
-            border:props.isActive ? "4px solid green" : "4px solid"
-        }} />
-      </div>
-      <div className="profile-info">
-        <div className="profile-description">
+    <Grid
+      container
+      py={4}
+      pb={10}
+      justifyContent="space-between"
+      position="relative"
+    >
+      <Grid item xs={12} sm={12} md={3}>
+        <img
+          src={props.image}
+          alt="Profile"
+          style={{
+            border: props.isActive ? "4px solid green" : "4px solid",
+            borderRadius: "50%",
+          }}
+        />
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={9}
+        pt={{ xs: 2, sm: 0 }}
+        style={{
+          border: `1px solid ${theme.palette.primary.main}`,
+          borderRadius: "5px",
+          padding: "1rem",
+        }}
+      >
+        <Box className="profile-description" pb={2}>
           <h3>Moi de mon point de vue</h3>
-          <hr />
+          <Divider
+            color="primary.main"
+            sx={{
+              height: ".5px",
+              backgroundColor: "primary.main",
+            }}
+          />
           <p>{props.description}</p>
-        </div>
-        <div className="profile-location">
+        </Box>
+        <Box className="profile-location" pb={2}>
           <h3>Adresses:</h3>
-          <hr />
+          <Divider
+            color="primary.main"
+            sx={{
+              height: ".5px",
+              backgroundColor: "primary.main",
+            }}
+          />
           <p>{props.address1}</p>
           <p>{props.address2}</p>
-        </div>
-        <div className="profile-skills">
+        </Box>
+        <Box className="profile-skills" pb={2}>
           <h3>Compétences en développement web:</h3>
-          <hr />
-          <ol>
-            {props.skills?.map((skill) => (
-              <li>{skill}</li>
-            ))}
-          </ol>
-        </div>
-      </div>
-    </div>
+          <Divider
+            color="primary.main"
+            sx={{
+              height: ".5px",
+              backgroundColor: "primary.main",
+            }}
+          />
+          <Box py={2}>
+            <ol>
+              {props.skills?.map((skill) => (
+                <li>{skill}</li>
+              ))}
+            </ol>
+          </Box>
+        </Box>
+      </Grid>
+    </Grid>
   );
-}
+};
 
 export default ProfilePage;
 
 type Props = {
-    image?: string;
-    description?: string;
-    address1?:string;
-    address2?:string;
-    skills?: string[];
-    name?: string;
-    isActive?: boolean;
-}
+  image?: string;
+  description?: string;
+  address1?: string;
+  address2?: string;
+  skills?: string[];
+  name?: string;
+  isActive?: boolean;
+};
