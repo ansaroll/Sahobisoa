@@ -17,7 +17,7 @@ const ProfilePage = (props: Props) => {
           src={props.image}
           alt="Profile"
           style={{
-            border: props.isActive ? "4px solid green" : "4px solid",
+            border: props.isActive ? "4px solid green" : `4px solid ${theme.palette.primary.main}`,
             borderRadius: "50%",
           }}
         />
