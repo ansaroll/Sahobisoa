@@ -2,7 +2,7 @@ import { Container } from "@mui/system";
 import { Card } from "../../components/Card";
 import styled from "styled-components";
 import { useContext, useEffect } from "react";
-import { CircularProgress, Typography } from "@mui/material";
+import { CircularProgress, Typography, Grid } from "@mui/material";
 import { ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -13,12 +13,6 @@ import {
 
 const url = "https://i.pravatar.cc/500";
 
-const CardsContainer = styled.div`
-  display: grid;
-  gap: 24px;
-  grid-template-rows: repeat(3, 300px);
-  grid-template-columns: repeat(3, 1fr);
-`;
 export const Freelances = () => {
   const { theme } = useContext(ThemeContext);
   const { data, isLoading } = useQuery<Array<Freelances>>(
@@ -47,17 +41,24 @@ export const Freelances = () => {
       >
         Freelances 👩‍💻👨‍💻👩‍💻
       </Typography>
-      <CardsContainer>
+      <Grid container spacing={2}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        alignContent="center"
+      >
         {data?.map((profile, index) => (
-          <Card
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card
             key={`${profile.name}-${index}`}
             label={profile.job}
             picture={profile.picture}
             title={profile.name}
             isActive={profile.isActive}
           />
+          </Grid>
         ))}
-      </CardsContainer>
+      </Grid>
     </Container>
   );
 };

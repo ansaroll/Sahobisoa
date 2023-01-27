@@ -11,7 +11,6 @@ export const CardWrapper = styled(Box)<{isactive?:string , theme?:Theme}>`
     padding: 15px;
     background-color: ${props => props?.theme.palette?.secondary?.main};
     border-radius: 30px;
-    width: 350px;
     transition: 200ms;
     transition:all 0.3s ease-in-out;
     // ${props => props?.isactive === 'true' && `background-color: ${colors.successLight};`} 

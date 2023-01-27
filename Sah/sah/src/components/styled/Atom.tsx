@@ -88,6 +88,7 @@ export const CardTitle = styled.div`
   font-size: 22px;
   font-weight: normal;
   align-self: center;
+  text-align: center;
   height: 25px;
   display: flex;
   align-items: center;

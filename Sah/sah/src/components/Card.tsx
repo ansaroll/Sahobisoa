@@ -6,12 +6,17 @@ import { useState } from "react";
 import { CardTitle } from "./styled/Atom";
 
 export const Card = ({ label, title, picture, isActive }: Props) => {
-
   const [isFavorite, setIsFavorite] = useState(false);
   const star = isFavorite ? "🌟" : "";
   const theme = useTheme();
   return (
-    <CardWrapper isactive={isActive?.toString()} theme={theme} onClick={() => setIsFavorite(!isFavorite)}>
+    <CardWrapper
+      gap={3}
+      py={5}
+      isactive={isActive?.toString()}
+      theme={theme}
+      onClick={() => setIsFavorite(!isFavorite)}
+    >
       <CardLabel theme={theme}>{label}</CardLabel>
       <CardImage src={picture} alt="freelance" height={80} width={80} />
       <CardTitle>
