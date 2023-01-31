@@ -22,6 +22,7 @@ const ProfilePage = (props: Props) => {
           }}
         />
       </Grid>
+      
       <Grid
         item
         xs={12}
