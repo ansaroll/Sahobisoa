@@ -18,6 +18,7 @@ import BrightnessMediumIcon from '@mui/icons-material/BrightnessMedium';
 import { NightModeButton } from "./styled/Atom";
 import { useContext } from "react";
 import { ThemeContext } from "../utils/context";
+import { useMediaQuery, Theme } from "@mui/material";
 
 
 const pages = [
@@ -28,6 +29,8 @@ const pages = [
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
+
+  const isSmorDown = useMediaQuery((theme:Theme) => theme.breakpoints.down('sm'))
 
   const { toggleTheme, theme } = useContext(ThemeContext)
   const navigate = useNavigate();
@@ -157,7 +160,7 @@ const Header = () => {
                 onClick={() => toggleTheme()}
                 data-testid="night-mode-btn"
               >
-                Changer de mode : {theme === 'light' ? '☀️' : '🌙'}
+               { isSmorDown? '' : 'Changer de mode :'} {theme === 'light' ? '☀️' : '🌙'}
               </NightModeButton>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
