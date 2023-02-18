@@ -30,7 +30,7 @@ export const Survey = () => {
   if (isLoading) {
     return (
       <SurveyContainer>
-          <CircularProgress sx={{mt:15}} />;
+          <CircularProgress sx={{mt:15}} />
       </SurveyContainer>
     );
   }
