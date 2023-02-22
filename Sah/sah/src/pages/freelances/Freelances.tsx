@@ -27,7 +27,7 @@ export const Freelances = () => {
   if (isLoading) {
     return (
       <SurveyContainer data-testid="loader">
-        <CircularProgress sx={{ mt: 15 }} />;
+        <CircularProgress sx={{ mt: 15 }} />
       </SurveyContainer>
     );
   }

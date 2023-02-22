@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { BrowserRouter as Router, Link } from "react-router-dom";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,12 +13,10 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import BrightnessMediumIcon from "@mui/icons-material/BrightnessMedium";
 import { NightModeButton } from "./styled/Atom";
 import { useContext } from "react";
 import { ThemeContext } from "../utils/context";
 import { useMediaQuery, Theme } from "@mui/material";
-import { Settings } from "@mui/icons-material";
 
 const pages = [
   { name: "Profils", link: "/profil" },
@@ -41,16 +38,11 @@ const Header = () => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
-  const [anchorElSetting, setAnchorElSetting] =
-    React.useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
-  };
-  const handleOpenSettingMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElSetting(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
@@ -161,42 +153,13 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }} display="flex" alignItems="center" gap={2}>
-            <IconButton onClick={handleOpenSettingMenu}>
-              <Settings />
-            </IconButton>
-
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElSetting}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElSetting)}
-              onClose={() => setAnchorElSetting(null)}
+            <NightModeButton
+              onClick={() => toggleTheme()}
+              data-testid="night-mode-btn"
             >
-              <MenuItem onClick={() => setAnchorElSetting(null)}>
-                <NightModeButton
-                  onClick={() => toggleTheme()}
-                  data-testid="night-mode-btn"
-                >
-                  {isSmorDown ? "" : "Changer de mode :"}{" "}
-                  {theme === "light" ? "☀️" : "🌙"}
-                </NightModeButton>
-              </MenuItem>
-              <MenuItem>
-                Green
-              </MenuItem>
-              <MenuItem>
-                Sky
-              </MenuItem>
-            </Menu>
+              {isSmorDown ? "" : "Changer de mode :"}{" "}
+              {theme === "light" ? "☀️" : "🌙"}
+            </NightModeButton>
 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
