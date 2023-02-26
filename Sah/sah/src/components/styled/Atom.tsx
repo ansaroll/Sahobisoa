@@ -1,3 +1,5 @@
+import { Box } from "@mui/material";
+import { ReactNode } from "react";
 import styled from "styled-components";
 import colors from "../../utils/color";
 
@@ -93,3 +95,11 @@ export const CardTitle = styled.div`
   display: flex;
   align-items: center;
 `
+
+export const BoxSpaceBetween = ({children}:{children:ReactNode}) => {
+  return (
+    <Box display='flex' justifyContent='space-between'>
+        {children}
+    </Box>
+  )
+}

@@ -19,12 +19,12 @@ export const ThemeDarkLightProvider = ({ children }: Props) => {
 };
 
 export const SurveyContext = createContext({
-    answers: {},
+    answers: {} as any,
     saveAnswers: (newsAnswers:any) => {},
 });
 
 export const SurveyProvider = ({ children }:Props) => {
-  const [answers, setAnswers] = useState({1:true,2:true,3:true,4:true,5:true,6:true});
+  const [answers, setAnswers] = useState<any>({1:false,2:false,3:false,4:false,5:false,6:false});
   const saveAnswers = (newAnswers:any) => {
     setAnswers({ ...answers, ...newAnswers });
   };

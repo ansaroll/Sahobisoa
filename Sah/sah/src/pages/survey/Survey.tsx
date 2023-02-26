@@ -1,5 +1,13 @@
-import { CircularProgress, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  IconButton,
+  Slide,
+  Typography,
+} from "@mui/material";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -7,9 +15,14 @@ import {
   SurveyContainer,
   QuestionContent,
   LinkWrapper,
+  BoxSpaceBetween,
 } from "../../components/styled/Atom";
+import { SurveyContext } from "../../utils/context";
 
 export const Survey = () => {
+  const { saveAnswers, answers } = useContext(SurveyContext);
+  console.log({ answers });
+
   const { id: questionNumber } = useParams();
   const questionNumberInt = parseInt(questionNumber || "0");
   const prevQuestionNumber =
@@ -27,10 +40,16 @@ export const Survey = () => {
     }
   }, [data]);
 
+  console.log('sas' , Object.keys(Object.entries(surveyData)))
+
+  const handleAnswerSurvey = (surveyNumber: number, answer: boolean) => {
+    saveAnswers({ [surveyNumber]: answer });
+  };
+
   if (isLoading) {
     return (
       <SurveyContainer>
-          <CircularProgress sx={{mt:15}} />
+        <CircularProgress sx={{ mt: 15 }} />
       </SurveyContainer>
     );
   }
@@ -43,9 +62,29 @@ export const Survey = () => {
         </Typography>
       )}
 
-      <QuestionContent className="text">
-        {surveyData[questionNumberInt]}{" "}
-      </QuestionContent>
+      <Slide direction={questionNumberInt > prevQuestionNumber ? 'left' : 'right'} in={true} mountOnEnter >
+        <QuestionContent className="text">
+          {surveyData[questionNumberInt]}{" "}
+        </QuestionContent>
+      </Slide>
+
+      <Container maxWidth="md">
+        <BoxSpaceBetween>
+          <Button
+            variant={answers?.[questionNumberInt] ? "outlined" : "contained"}
+            onClick={() => handleAnswerSurvey(questionNumberInt, false)}
+          >
+            Non
+          </Button>
+          <Button
+            variant={answers?.[questionNumberInt] ? "contained" : "outlined"}
+            onClick={() => handleAnswerSurvey(questionNumberInt, true)}
+          >
+            Oui
+          </Button>
+        </BoxSpaceBetween>
+      </Container>
+
       <LinkWrapper>
         <Link to={`/survey/${prevQuestionNumber}`}>
           <span className="text"> ← Précédent</span>
