@@ -3,11 +3,12 @@ import {
   Button,
   CircularProgress,
   Container,
+  Grow,
   IconButton,
   Slide,
   Typography,
 } from "@mui/material";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -46,6 +47,8 @@ export const Survey = () => {
     saveAnswers({ [surveyNumber]: answer });
   };
 
+  const containerRef = useRef(null);
+
   if (isLoading) {
     return (
       <SurveyContainer>
@@ -55,36 +58,42 @@ export const Survey = () => {
   }
 
   return (
-    <SurveyContainer
-      style={{ overflow:'hidden' }}
-    >
+    <>
       {!isLoading && (
         <Typography className="text" variant="h3" mt={15} mb={5}>
           Question {questionNumber}
         </Typography>
       )}
 
-      {Object.keys(Object.entries(surveyData))?.map((index: string) => {
-
-        return (
-          <Slide
-            appear
-            timeout={{ 
-              enter:700,
-              exit:500
-            }}            
-            direction={
-              questionNumberInt > prevQuestionNumber ? "left" : "right" 
-            }
-            in={parseInt(index) + 1 == questionNumberInt }
-            unmountOnExit          
-          >
-            <QuestionContent className="text">
-              {surveyData[parseInt(index) + 1]}{" "}
-            </QuestionContent>
-          </Slide>
-        );
-      })}
+      <SurveyContainer  ref={containerRef} style={{
+                overflow: "hidden",
+              }}>
+        {Object.keys(Object.entries(surveyData))?.map((index: string) => {
+          return (
+            <Slide
+              style={{
+                overflow: "hidden",
+              }}
+              timeout={{
+                enter: 3000,
+                exit: 1500,
+              }}
+              direction="left"
+              in={parseInt(index) + 1 == questionNumberInt}
+              unmountOnExit
+              container={containerRef.current}
+            >
+              <QuestionContent className="text" style={{
+                transition:'ease-in-out'
+              }}>
+                <Typography noWrap>
+                {surveyData[parseInt(index) + 1]}{" "}
+                </Typography>
+              </QuestionContent>
+            </Slide>
+          );
+        })}
+      </SurveyContainer>
 
       <Container maxWidth="md">
         <BoxSpaceBetween>
@@ -117,7 +126,7 @@ export const Survey = () => {
           </Link>
         )}
       </LinkWrapper>
-    </SurveyContainer>
+    </>
   );
 };
 

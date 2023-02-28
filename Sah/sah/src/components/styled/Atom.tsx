@@ -5,7 +5,8 @@ import colors from "../../utils/color";
 
 export const SurveyContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -22,6 +23,10 @@ export const QuestionContent = styled.span`
 `;
 
 export const LinkWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding-top: 30px;
   & a {
     color: black;
@@ -32,24 +37,24 @@ export const LinkWrapper = styled.div`
 `;
 
 export const NightModeButton = styled.button`
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: ${colors.secondary};
-`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: ${colors.secondary};
+`;
 
-const ResultsContainer = styled.div<{theme:string}>`
+const ResultsContainer = styled.div<{ theme: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 60px 90px;
   padding: 30px;
   background-color: ${({ theme }) =>
-    theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
-`
+    theme === "light" ? colors.backgroundLight : colors.backgroundDark};
+`;
 
-export const ResultsTitle = styled.h2<{theme:string}>`
-  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+export const ResultsTitle = styled.h2<{ theme: string }>`
+  color: ${({ theme }) => (theme === "light" ? "#000000" : "#ffffff")};
   font-weight: bold;
   font-size: 28px;
   max-width: 60%;
@@ -57,36 +62,36 @@ export const ResultsTitle = styled.h2<{theme:string}>`
   & > span {
     padding-left: 10px;
   }
-`
+`;
 
 export const DescriptionWrapper = styled.div`
   padding: 60px;
-`
+`;
 
-export const JobTitle = styled.span<{theme:string}>`
+export const JobTitle = styled.span<{ theme: string }>`
   color: ${({ theme }) =>
-    theme === 'light' ? colors.primary : colors.backgroundLight};
+    theme === "light" ? colors.primary : colors.backgroundLight};
   text-transform: capitalize;
-`
+`;
 
-export const JobDescription = styled.div<{theme:string}>`
+export const JobDescription = styled.div<{ theme: string }>`
   font-size: 18px;
   & > p {
-    color: ${({ theme }) => (theme === 'light' ? colors.secondary : '#ffffff')};
+    color: ${({ theme }) => (theme === "light" ? colors.secondary : "#ffffff")};
     margin-block-start: 5px;
   }
   & > span {
     font-size: 20px;
   }
-`
+`;
 
 export const LoaderWrapper = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 export const CardTitle = styled.div`
-  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+  color: ${({ theme }) => (theme === "light" ? "#000000" : "#ffffff")};
   font-size: 22px;
   font-weight: normal;
   align-self: center;
@@ -94,12 +99,12 @@ export const CardTitle = styled.div`
   height: 25px;
   display: flex;
   align-items: center;
-`
+`;
 
-export const BoxSpaceBetween = ({children}:{children:ReactNode}) => {
+export const BoxSpaceBetween = ({ children }: { children: ReactNode }) => {
   return (
-    <Box display='flex' justifyContent='space-between'>
-        {children}
+    <Box display="flex" justifyContent="space-between">
+      {children}
     </Box>
-  )
-}
+  );
+};
