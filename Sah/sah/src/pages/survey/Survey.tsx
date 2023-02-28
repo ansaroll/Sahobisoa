@@ -30,9 +30,13 @@ export const Survey = () => {
   const nextQuestionNumber = questionNumberInt + 1;
   const [surveyData, setSurveyData] = useState<any>({});
 
-  const { isLoading, data } = useQuery(["survey"], async () => {
-    const res = await fetch(`http://localhost:8000/survey`);
-    return await res.json();
+  const { isLoading, data } = useQuery({
+    queryKey: ["survey"], queryFn: async () => {
+      const res = await fetch(`http://localhost:8000/survey`);
+      return await res.json();
+    },
+    refetchOnMount: true,
+    retryOnMount: true
   });
 
   useEffect(() => {
@@ -41,7 +45,6 @@ export const Survey = () => {
     }
   }, [data]);
 
-  console.log("sas", Object.keys(Object.entries(surveyData)));
 
   const handleAnswerSurvey = (surveyNumber: number, answer: boolean) => {
     saveAnswers({ [surveyNumber]: answer });
@@ -65,14 +68,16 @@ export const Survey = () => {
         </Typography>
       )}
 
-      <SurveyContainer  ref={containerRef} style={{
-                overflow: "hidden",
-              }}>
-        {Object.keys(Object.entries(surveyData))?.map((index: string) => {
+      <SurveyContainer ref={containerRef} style={{
+        overflow: "hidden",
+      }}>
+        {Object.keys(Object.entries(surveyData || {}))?.map((index: string) => {
           return (
             <Slide
               style={{
                 overflow: "hidden",
+                zIndex: parseInt(index) + 1 == questionNumberInt ? 10 : 1,
+                opacity: parseInt(index) + 1 == questionNumberInt ? 1 : 0.6
               }}
               timeout={{
                 enter: 3000,
@@ -84,10 +89,10 @@ export const Survey = () => {
               container={containerRef.current}
             >
               <QuestionContent className="text" style={{
-                transition:'ease-in-out'
+                transition: 'ease-in-out'
               }}>
                 <Typography noWrap>
-                {surveyData[parseInt(index) + 1]}{" "}
+                  {surveyData[parseInt(index) + 1]}{" "}
                 </Typography>
               </QuestionContent>
             </Slide>
@@ -116,7 +121,7 @@ export const Survey = () => {
         <Link to={`/survey/${prevQuestionNumber}`}>
           <span className="text"> ← Précédent</span>
         </Link>
-        {surveyData[questionNumberInt + 1] ? (
+        {questionNumberInt + 1 <= Object.entries(surveyData || {}).length && surveyData[questionNumberInt + 1] ? (
           <Link to={`/survey/${nextQuestionNumber}`}>
             <span className="text">Suivant →</span>
           </Link>
