@@ -21,7 +21,6 @@ import { SurveyContext } from "../../utils/context";
 
 export const Survey = () => {
   const { saveAnswers, answers } = useContext(SurveyContext);
-  console.log({ answers });
 
   const { id: questionNumber } = useParams();
   const questionNumberInt = parseInt(questionNumber || "0");
@@ -30,8 +29,9 @@ export const Survey = () => {
   const nextQuestionNumber = questionNumberInt + 1;
   const [surveyData, setSurveyData] = useState<any>({});
 
-  const { isLoading, data } = useQuery(["survey"], () => {
-    return fetch(`http://localhost:8000/survey`).then((res) => res.json());
+  const { isLoading, data } = useQuery(["survey"], async () => {
+    const res = await fetch(`http://localhost:8000/survey`);
+    return await res.json();
   });
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const Survey = () => {
     }
   }, [data]);
 
-  console.log('sas' , Object.keys(Object.entries(surveyData)))
+  console.log("sas", Object.keys(Object.entries(surveyData)));
 
   const handleAnswerSurvey = (surveyNumber: number, answer: boolean) => {
     saveAnswers({ [surveyNumber]: answer });
@@ -55,18 +55,36 @@ export const Survey = () => {
   }
 
   return (
-    <SurveyContainer>
+    <SurveyContainer
+      style={{ overflow:'hidden' }}
+    >
       {!isLoading && (
         <Typography className="text" variant="h3" mt={15} mb={5}>
           Question {questionNumber}
         </Typography>
       )}
 
-      <Slide direction={questionNumberInt > prevQuestionNumber ? 'left' : 'right'} in={true} mountOnEnter >
-        <QuestionContent className="text">
-          {surveyData[questionNumberInt]}{" "}
-        </QuestionContent>
-      </Slide>
+      {Object.keys(Object.entries(surveyData))?.map((index: string) => {
+
+        return (
+          <Slide
+            appear
+            timeout={{ 
+              enter:700,
+              exit:500
+            }}            
+            direction={
+              questionNumberInt > prevQuestionNumber ? "left" : "right" 
+            }
+            in={parseInt(index) + 1 == questionNumberInt }
+            unmountOnExit          
+          >
+            <QuestionContent className="text">
+              {surveyData[parseInt(index) + 1]}{" "}
+            </QuestionContent>
+          </Slide>
+        );
+      })}
 
       <Container maxWidth="md">
         <BoxSpaceBetween>
@@ -104,3 +122,5 @@ export const Survey = () => {
 };
 
 export default Survey;
+
+type TSurvey = {};
