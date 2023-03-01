@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProfilePage.css";
-import { Grid, useTheme, Divider, Box } from "@mui/material";
+import { Grid, useTheme, Divider, Box, Avatar } from "@mui/material";
 
 const ProfilePage = (props: Props) => {
   const theme = useTheme();
@@ -13,9 +13,11 @@ const ProfilePage = (props: Props) => {
       position="relative"
     >
       <Grid item xs={12} sm={12} md={3}>
-        <img
+        <Avatar
           src={props.image}
+          sizes="200 200"
           alt="Profile"
+           sx={{ width: 200, height: 200 }}
           style={{
             border: props.isActive ? "4px solid green" : `4px solid ${theme.palette.primary.main}`,
             borderRadius: "50%",
