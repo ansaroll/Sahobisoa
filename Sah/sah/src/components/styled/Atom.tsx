@@ -53,12 +53,13 @@ const ResultsContainer = styled.div<{ theme: string }>`
     theme === "light" ? colors.backgroundLight : colors.backgroundDark};
 `;
 
-export const ResultsTitle = styled.h2<{ theme: string }>`
+export const ResultsTitle = styled.div<{ theme: string }>`
   color: ${({ theme }) => (theme === "light" ? "#000000" : "#ffffff")};
   font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 28px;
   max-width: 60%;
-  text-align: center;
   & > span {
     padding-left: 10px;
   }

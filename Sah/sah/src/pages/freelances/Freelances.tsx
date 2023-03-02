@@ -63,10 +63,12 @@ export const Freelances = () => {
   );
 };
 
-type Freelances = {
+export type Freelances = {
   id: string;
   name: string;
   job: string;
   picture: string;
   isActive: boolean;
+  jobType: string;
+  tjm: number;
 };

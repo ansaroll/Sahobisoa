@@ -16,7 +16,7 @@ export const StyledGlobalStyle = createGlobalStyle<{isDarkMode:boolean}>`
         margin: 0;  
     }
 
-    .text, h1, h2, h3, p , li, a {
+    .text, h1, h2, h3, p , li, a, .MuiTypography-root {
         color: ${({ isDarkMode }) => (isDarkMode ? 'white' : 'black')};
     }
 `
