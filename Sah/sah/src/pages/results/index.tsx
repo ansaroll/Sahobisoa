@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { JobTitle, ResultsTitle } from "../../components/styled/Atom";
 import { SurveyContext, ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Divider, Typography } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Divider, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import 'swiper/css';
@@ -12,7 +12,7 @@ export function formatJobList({ title, listLength, index }: any): string {
   if (index === listLength - 1) {
     return title;
   } else {
-    return `${title},`;
+    return `${title}, `;
   }
 }
 
@@ -28,8 +28,14 @@ export function formatQueryParams(answers: any) {
 
 const Results = () => {
   const { theme } = useContext(ThemeContext);
+  const themeGlobal = useTheme();
   const { answers } = useContext(SurveyContext);
   const queryParams = formatQueryParams(answers);
+
+
+  const isSmOrDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const isMdOrDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+
 
   const { data } = useQuery(["survey"], () => {
     return fetch(`http://localhost:8000/results?${queryParams}`).then((res) =>
@@ -52,12 +58,22 @@ const Results = () => {
         <Typography variant="h4">
           Les compétences dont vous avez besoin :
         </Typography>
-        <Typography variant="h2">
+        <Typography variant={isMdOrDown ? "h4" : "h3" } style={{
+          wordBreak: "break-word",
+          width: "100%",
+        }}>
           {data?.resultsData &&
             data?.resultsData.map((result: any, index: number) => (
-              <>
+              <span
+                style={{
+                  backgroundColor: theme == "dark" ? themeGlobal.palette.secondary.main : themeGlobal.palette.primary.light,
+                  marginInline: 5,
+                  paddingInline: 5,
+                  borderRadius: 5,
+                }}
+              >
                 {formatJobList({ title: result.title, listLength: data?.resultsData.length, index }).toUpperCase()}
-              </>
+              </span>
             ))
           }
         </Typography>
@@ -86,15 +102,21 @@ const Results = () => {
               <Divider />
               <Box>
                 <Swiper
-                  spaceBetween={50}
-                  slidesPerView={3}
+                  spaceBetween={10}
+                  slidesPerView={isSmOrDown ? 1 : (isMdOrDown ? 2 :3)}
+                  centeredSlides={isSmOrDown ? true : false}
                   onSlideChange={() => console.log('slide change')}
                   onSwiper={(swiper) => console.log(swiper)}
                 >
                   {freelances?.filter(i => i.jobType == result.title).map((freelance) => {
 
                     return (
-                      <SwiperSlide>
+                      <SwiperSlide
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
 
                         <Card sx={{ maxWidth: 345 }}>
                           <CardMedia

@@ -59,7 +59,6 @@ export const ResultsTitle = styled.div<{ theme: string }>`
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 28px;
-  max-width: 60%;
   & > span {
     padding-left: 10px;
   }
