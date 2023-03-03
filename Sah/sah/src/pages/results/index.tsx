@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { JobTitle, ResultsTitle } from "../../components/styled/Atom";
 import { SurveyContext, ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Divider, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, CircularProgress, Divider, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import 'swiper/css';
@@ -37,33 +37,44 @@ const Results = () => {
   const isMdOrDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
 
-  const { data } = useQuery(["survey"], () => {
-    return fetch(`http://localhost:8000/results?${queryParams}`).then((res) =>
-      res.json()
-    );
+  const { data: results } = useQuery<Array<TResultsSkills>>(["survey"], async () => {
+    const res = await fetch(`http://localhost:8000/results?${queryParams}`);
+    return await res.json();
   });
 
-  const { data: freelances, isLoading } = useQuery<Array<Freelances>>(
-    ["freelanceProfiles"],
-    () => {
-      return fetch(`http://localhost:8000/freelances`).then((res) =>
-        res.json()
-      );
-    }
-  );
+  const { data: freelances, isLoading } = useQuery<Array<Freelances>>(["freelanceProfiles"], async () => {
+    const res = await fetch(`http://localhost:8000/freelances`)
+    return await res.json()
+  });
+
 
   return (
     <>
       <ResultsTitle theme={theme}>
         <Typography variant="h4">
-          Les compétences dont vous avez besoin :
+          Les compétences dont vous avez besoin sont
         </Typography>
-        <Typography variant={isMdOrDown ? "h4" : "h3" } style={{
+        <Typography variant={isMdOrDown ? "h4" : "h3"} style={{
           wordBreak: "break-word",
           width: "100%",
         }}>
-          {data?.resultsData &&
-            data?.resultsData.map((result: any, index: number) => (
+
+          {
+            isLoading &&
+            <Box width="100%" display="flex" justifyContent="center" py={4}>
+              <CircularProgress />
+            </Box>
+          }
+
+          {
+            (!results?.length && !isLoading) &&
+            <Typography>
+              Il semble que vous n'avez paa besoin des competences :D
+            </Typography>
+          }
+          {
+            (!!results?.length && !isLoading) &&
+            results?.map((result: any, index: number) => (
               <span
                 style={{
                   backgroundColor: theme == "dark" ? themeGlobal.palette.secondary.main : themeGlobal.palette.primary.light,
@@ -72,24 +83,16 @@ const Results = () => {
                   borderRadius: 5,
                 }}
               >
-                {formatJobList({ title: result.title, listLength: data?.resultsData.length, index }).toUpperCase()}
+                {formatJobList({ title: result.title, listLength: results?.length, index }).toUpperCase()}
               </span>
             ))
           }
         </Typography>
       </ResultsTitle>
 
-      {/* <Box>
-        <Typography variant="body1">
-          Nous avons trouvé {freelances?.length} profils qui correspondent à vos besoins.
-          Vous pouvez les contacter directement via leur profil LinkedIn.Si vous souhaitez
-          en savoir plus sur les profils, vous pouvez consulter leur CV.Vous trouverez ci-dessous
-          les profils qui correspondent à vos besoins.
-        </Typography>
-      </Box> */}
-
-      {data?.resultsData &&
-        data?.resultsData.map((result: any, index: number) => {
+      {
+        (!!results?.length && !isLoading) &&
+        results?.map((result: any, index: number) => {
           return (
             <Box pb={10}>
               <Typography variant="h4" py={4}>
@@ -103,7 +106,7 @@ const Results = () => {
               <Box>
                 <Swiper
                   spaceBetween={10}
-                  slidesPerView={isSmOrDown ? 1 : (isMdOrDown ? 2 :3)}
+                  slidesPerView={isSmOrDown ? 1 : (isMdOrDown ? 2 : 3)}
                   centeredSlides={isSmOrDown ? true : false}
                   onSlideChange={() => console.log('slide change')}
                   onSwiper={(swiper) => console.log(swiper)}
@@ -160,3 +163,8 @@ const Results = () => {
 
 
 export default Results;
+
+type TResultsSkills = {
+  description?: string,
+  title?: string
+}

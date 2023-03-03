@@ -24,6 +24,17 @@ const pages = [
   { name: "Survey", link: "/survey/1" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const notLogedMenus = [
+  {
+    linkName: "Se connecter",
+    link: "/login"
+  },
+  {
+    linkName: "S'inscrire",
+    link: "/register"
+  }
+];
+
 
 const Header = () => {
   const isSmorDown = useMediaQuery((theme: Theme) =>
@@ -52,6 +63,11 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleClickMenu = (link: string) => {
+    handleCloseUserMenu();
+    navigate(link);
+  }
 
   return (
     <AppBar position="sticky">
@@ -182,9 +198,9 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {notLogedMenus.map((menu) => (
+                <MenuItem key={menu.linkName} onClick={() => handleClickMenu(menu.link)}>
+                  <Typography textAlign="center">{menu.linkName}</Typography>
                 </MenuItem>
               ))}
             </Menu>

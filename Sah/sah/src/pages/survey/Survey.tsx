@@ -81,7 +81,7 @@ export const Survey = () => {
               }}
               timeout={{
                 enter: 3000,
-                exit: 1500,
+                exit: 100,
               }}
               direction="left"
               in={parseInt(index) + 1 == questionNumberInt}

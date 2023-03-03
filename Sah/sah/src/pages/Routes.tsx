@@ -5,6 +5,7 @@ import Error404 from "../components/Error404";
 import Home from "./home/Home";
 import { Profil } from "./profil/Profil";
 import Results from "./results";
+import { AccountRoutes } from "./account/Routes";
 
 export const AllRoutes = [
     {
@@ -31,6 +32,7 @@ export const AllRoutes = [
                 path: "/profil",
                 element: <Profil />,
             },
+            ...AccountRoutes,
         ],
     },
     {
