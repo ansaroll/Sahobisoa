@@ -1,8 +1,12 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Box, Button, Grid, IconButton, InputAdornment, Paper, TextField, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../../utils/context';
 
 const SignUp = () => {
+
+  const { theme } = useContext(ThemeContext);
+
     const [showPassword, setShowPassword] = React.useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -23,7 +27,9 @@ const SignUp = () => {
             <Grid item xs={12} sm={8} md={7} >
                 <Box
                     sx={{
-                        py: 6,
+                        my:2,
+                        py: 4,
+                        backgroundColor: theme == "dark" ? "rgba(60,80,150,.4)" : "",
                         "&:before": {
                             content: '""',
                             backgroundImage: 'url(../../assets/back1.jpg)',
