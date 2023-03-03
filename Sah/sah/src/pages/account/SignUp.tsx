@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material'
 import React from 'react'
 
 const SignUp = () => {
@@ -9,9 +9,10 @@ const SignUp = () => {
                     sx={{
                         my: 6,
                         py: 6,
-                        backgroundImage: 'url(../../assets/back1.jpg)',
-                        backgroundSize: 'cover',
-                        filter: 'blur(.1px)',
+                        "&:before": {
+                            content: '""',
+                            backgroundImage: 'url(../../assets/back1.jpg)',
+                        },
                         // boxShadow: 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'
                     }}
                 >
@@ -34,6 +35,14 @@ const SignUp = () => {
                         </Box>
                         <Box>
                             <TextField fullWidth label="Lien LinkedIn" variant="outlined" />
+                        </Box>
+                        <Box>
+                            <TextField fullWidth label="Titre du profil" variant="outlined" />
+                        </Box>
+                        <Box>
+                            <Button variant='contained'>
+                                S'inscrire
+                            </Button>
                         </Box>
                     </Box>
                 </Box>
