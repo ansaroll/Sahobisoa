@@ -1,7 +1,23 @@
-import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { Box, Button, Grid, IconButton, InputAdornment, Paper, TextField, Typography } from '@mui/material'
 import React from 'react'
 
 const SignUp = () => {
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
+
+    const [showPassword1, setShowPassword1] = React.useState(false);
+
+    const handleClickShowPassword1 = () => setShowPassword1((show) => !show);
+
+    const handleMouseDownPassword1 = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
     return (
         <Grid container>
             <Grid item xs={12} sm={8} md={7} >
@@ -40,10 +56,34 @@ const SignUp = () => {
                         </Box>
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={6}>
-                                <TextField fullWidth label="Mot de passe" variant="outlined" />
+                                <TextField
+                                    type={showPassword1 ? 'text' : 'password'}
+                                    InputProps={{
+                                        endAdornment: <InputAdornment position="end" >
+                                            <IconButton
+                                                onClick={handleClickShowPassword1}
+                                                onMouseDown={handleMouseDownPassword1}
+                                            >
+                                                {showPassword1 ? <VisibilityOff /> : <Visibility />}
+                                            </IconButton>
+                                        </InputAdornment>,
+                                    }}
+                                    fullWidth label="Mot de passe" variant="outlined"/>
                             </Grid>
                             <Grid item xs={12} sm={6}>
-                                <TextField fullWidth label="Confirmation mot de passe" variant="outlined" />
+                                <TextField
+                                    type={showPassword ? 'text' : 'password'}
+                                    InputProps={{
+                                        endAdornment: <InputAdornment position="end" >
+                                            <IconButton
+                                                onClick={handleClickShowPassword}
+                                                onMouseDown={handleMouseDownPassword}
+                                            >
+                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                            </IconButton>
+                                        </InputAdornment>,
+                                    }}
+                                    fullWidth label="Confirmation mot de passe" variant="outlined" />
                             </Grid>
                         </Grid>
                         <Box>
