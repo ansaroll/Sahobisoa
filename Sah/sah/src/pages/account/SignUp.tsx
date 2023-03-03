@@ -7,7 +7,6 @@ const SignUp = () => {
             <Grid item xs={12} sm={8} md={7} >
                 <Box
                     sx={{
-                        my: 6,
                         py: 6,
                         "&:before": {
                             content: '""',
@@ -39,6 +38,14 @@ const SignUp = () => {
                         <Box>
                             <TextField fullWidth label="Titre du profil" variant="outlined" />
                         </Box>
+                        <Grid container spacing={1}>
+                            <Grid item xs={12} sm={6}>
+                                <TextField fullWidth label="Mot de passe" variant="outlined" />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField fullWidth label="Confirmation mot de passe" variant="outlined" />
+                            </Grid>
+                        </Grid>
                         <Box>
                             <Button variant='contained'>
                                 S'inscrire
