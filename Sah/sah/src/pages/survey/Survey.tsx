@@ -118,15 +118,21 @@ export const Survey = () => {
       </Container>
 
       <LinkWrapper>
-        <Link to={`/survey/${prevQuestionNumber}`}>
+        <Link to={`/survey/${prevQuestionNumber}`} style={{
+            textDecoration: "none"
+          }}>
           <span className="text"> ← Précédent</span>
         </Link>
         {questionNumberInt + 1 <= Object.entries(surveyData || {}).length && surveyData[questionNumberInt + 1] ? (
-          <Link to={`/survey/${nextQuestionNumber}`}>
-            <span className="text">Suivant →</span>
+          <Link to={`/survey/${nextQuestionNumber}`} style={{
+            textDecoration: "none"
+          }}>
+            <span className="text" >Suivant →</span>
           </Link>
         ) : (
-          <Link to="/results">
+          <Link to="/results" style={{
+            textDecoration: "none"
+          }}>
             <span className="text">Résultats 💡</span>
           </Link>
         )}
