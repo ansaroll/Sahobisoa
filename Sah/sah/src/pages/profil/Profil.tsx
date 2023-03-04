@@ -1,9 +1,10 @@
 import React from "react";
 import ProfilePage from "./ProfilePage";
+import { Container } from "@mui/material";
 
 export const Profil = () => {
   return (
-    <>
+    <Container>
       <ProfilePage
         image={user.image}
         name={user.name}
@@ -13,7 +14,7 @@ export const Profil = () => {
         skills={user.skills}
         isActive={user.isActive}
       />
-    </>
+    </Container>
   );
 };
 

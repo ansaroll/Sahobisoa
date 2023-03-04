@@ -12,7 +12,7 @@ export const StyledGlobalStyle = createGlobalStyle<{isDarkMode:boolean}>`
         background-color: ${props =>
         props.isDarkMode ? '#2F2E41' : 'white'};
         */
-        background-color: ${({ isDarkMode }) => (isDarkMode ? 'black' : 'white')};
+        background-color: ${({ isDarkMode }) => (isDarkMode ? '#010010' : '#E2E4E8')};
         margin: 0;  
     }
 

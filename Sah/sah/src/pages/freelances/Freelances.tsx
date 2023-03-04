@@ -2,7 +2,7 @@ import { Container } from "@mui/system";
 import { Card } from "../../components/Card";
 import styled from "styled-components";
 import { useContext, useEffect } from "react";
-import { CircularProgress, Typography, Grid } from "@mui/material";
+import { CircularProgress, Typography, Grid, Box } from "@mui/material";
 import { ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -33,7 +33,7 @@ export const Freelances = () => {
   }
 
   return (
-    <Container maxWidth="lg" sx={{ mb: 10 }}>
+    <Container sx={{ mb: 10 }}>
       <Typography
         variant="h4"
         my={2}

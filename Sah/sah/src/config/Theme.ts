@@ -16,6 +16,7 @@ export const Theme:ThemeOptions ={
     },
     typography: {
         fontFamily: [
+            "Lexend Deca",
             // "Inter",
             "Circe",
             "Roboto",

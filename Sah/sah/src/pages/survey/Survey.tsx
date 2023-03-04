@@ -61,7 +61,7 @@ export const Survey = () => {
   }
 
   return (
-    <>
+    <Container>
       {!isLoading && (
         <Typography className="text" variant="h3" mt={15} mb={5}>
           Question {questionNumber}
@@ -137,7 +137,7 @@ export const Survey = () => {
           </Link>
         )}
       </LinkWrapper>
-    </>
+    </Container>
   );
 };
 
