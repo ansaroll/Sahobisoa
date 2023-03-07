@@ -45,7 +45,7 @@ const Home = () => {
               fontFamily: "Lexend Deca",
               py: { xs: 4, sm: 4 },
               letterSpacing: "0.5em",
-              textShadow: "0px 2px 20px rgba(255,255,255,0.8)",
+              textShadow: "0px 0px 10px rgba(255,255,255,0.6)",
             }}
             color="primary"
           >
