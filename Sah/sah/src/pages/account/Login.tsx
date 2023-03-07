@@ -1,14 +1,19 @@
-import { Box, Button, Chip, Container, Divider, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Box, Button, Chip, Container, Dialog, DialogContent, DialogContentText, DialogTitle, Divider, Grid, Paper, TextField, Typography } from '@mui/material'
 import React from 'react'
-import { auth, providerAutGoogle } from '../../firebase'
+import { auth, providerAutGoogle, providerAuthGithub } from '../../firebase'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+import { Verified, VerifiedOutlined } from '@mui/icons-material'
 const Login = () => {
 
-    const handleSignIn = () => {
-        signInWithPopup(auth, providerAutGoogle)
+    providerAuthGithub.setCustomParameters({ prompt: 'select_account' });
+    const [user, setUser] = React.useState<TUser | undefined>(undefined)
+
+    const handleSignWithGithub = () => {
+        signInWithPopup(auth, providerAuthGithub)
             .then((result) => {
                 // Connexion réussie
                 const user = result.user;
+                setUser(v => ({ ...v, displayName: user.displayName || "" }))
                 console.log("Connecté avec succès en tant que", user.displayName);
             })
             .catch((error) => {
@@ -16,6 +21,22 @@ const Login = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log("Erreur de connexion", errorMessage);
+            });
+    }
+
+    const handleSignIn = () => {
+        signInWithPopup(auth, providerAutGoogle)
+            .then((result) => {
+                // Connexion réussie
+                const user = result.user;
+                setUser(v => ({ ...v, displayName: user.displayName || "" }))
+                console.log("Connecté avec succès en tant que", user.displayName);
+            })
+            .catch((error) => {
+                // Erreur de connexion
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log("Erreur de connexion", errorMessage, errorCode);
             });
     };
 
@@ -63,12 +84,42 @@ const Login = () => {
                                     <img src="https://img.icons8.com/color/24/000000/google-logo.png" /> &nbsp; Se connecter avec Google
                                 </Button>
                             </Box>
+
+                            {/* <Box alignSelf="left">
+                                <Button variant='contained' onClick={handleSignWithGithub} fullWidth>
+                                    <img src="https://img.icons8.com/color/24/000000/github.png" /> &nbsp; Se connecter avec Github
+                                </Button>
+                            </Box> */}
+
                         </Box>
                     </Box>
                 </Grid>
             </Grid>
+            <Dialog
+                open={Boolean(user?.displayName)}
+                // open={true}
+                onClose={() => setUser(undefined)}
+            >
+                <DialogTitle>
+                    Connexion
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        <Box display="flex" width='100%' justifyContent="center">
+                            <Verified color='success'/>
+                        </Box>
+                        <Typography textAlign='center' pt={2}>
+                            Hello {user?.displayName}
+                        </Typography>
+                    </DialogContentText>
+                </DialogContent>
+            </Dialog>
         </Container>
     )
 }
 
 export default Login
+
+type TUser = {
+    displayName: string
+}
