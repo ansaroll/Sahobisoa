@@ -1,7 +1,24 @@
-import { Box, Button, Container, Grid, Paper, TextField, Typography } from '@mui/material'
+import { Box, Button, Chip, Container, Divider, Grid, Paper, TextField, Typography } from '@mui/material'
 import React from 'react'
-
+import { auth, providerAutGoogle } from '../../firebase'
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 const Login = () => {
+
+    const handleSignIn = () => {
+        signInWithPopup(auth, providerAutGoogle)
+            .then((result) => {
+                // Connexion réussie
+                const user = result.user;
+                console.log("Connecté avec succès en tant que", user.displayName);
+            })
+            .catch((error) => {
+                // Erreur de connexion
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log("Erreur de connexion", errorMessage);
+            });
+    };
+
     return (
         <Container>
             <Grid container>
@@ -31,9 +48,19 @@ const Login = () => {
                             <Box>
                                 <TextField fullWidth label="Mot de passe" variant="outlined" />
                             </Box>
+                            <Box alignSelf="left">
+                                <Button variant='contained' fullWidth>
+                                    Se connecter
+                                </Button>
+                            </Box>
                             <Box>
-                                <Button variant='contained'>
-                                    S'inscrire
+                                <Divider component="div" textAlign='left'>
+                                    <Chip label="Ou" />
+                                </Divider>
+                            </Box>
+                            <Box alignSelf="left">
+                                <Button variant='contained' onClick={handleSignIn} fullWidth>
+                                    <img src="https://img.icons8.com/color/24/000000/google-logo.png" /> &nbsp; Se connecter avec Google
                                 </Button>
                             </Box>
                         </Box>
