@@ -1,0 +1,22 @@
+API:Faire une recherche sur ce sujet.
+====================================
+Application Programing Interface: Comme un gros manuel d'instruction comment deux element se commnunique.
+
+Les Differences entre les metiers Infos:
+========================================
+Database -- Serveur --    Front:site,mobile,appareil connectee
+Admin BD    Admin Serv    Front
+
+Se specialiser
+==============
+On se specialise triop tard: vouloir tout savoir est une erreur.
+Je vais se specialiser dans React. pas de back.
+
+Savoir Gerer son temps
+======================
+Passer trop de temps en etant coincee, est-ce que le tuto est bon, faire revenir le tuto , on pourrait rater qlque chose.
+Faire un pose, coucher, revenir apres, demander aux autres.
+
+Le reseaux
+==========
+Decouvrir autres devs, travailles dans une equipe.

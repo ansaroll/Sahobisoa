@@ -1,33 +1,61 @@
 import React from "react";
 import ProfilePage from "./ProfilePage";
-import { Container } from "@mui/material";
+import { Avatar, Badge, Box, Button, Container, Grid, Typography } from "@mui/material";
+import { AccessTime, Home, PunchClock } from "@mui/icons-material";
 
-export const Profil = () => {
+const Profil = () => {
   return (
-    <Container>
-      <ProfilePage
-        image={user.image}
-        name={user.name}
-        description={user.description}
-        address1={user.address1}
-        address2={user.address2}
-        skills={user.skills}
-        isActive={user.isActive}
-      />
-    </Container>
+    <Box sx={{ backgroundColor: "background.default" }} >
+      <Container maxWidth="lg" >
+        <Grid container py={4} >
+          <Grid item xs={12} sm={4} md={2.5}>
+            <Badge color="secondary" overlap="circular" badgeContent="Nouveau" >
+              <Avatar
+                alt="Profil Images"
+                src="./assets/profil/sahprofil.png"
+                sx={{ width: 200, height: 200 }}
+              />
+            </Badge>
+          </Grid>
+          <Grid item xs={12} sm={12} md={7.5} container direction="column"
+            justifyContent="center"
+            alignItems="start"
+          >
+            <Typography variant="h4">
+              Sahobisoa Rolland ANDRIANIAINA
+            </Typography>
+            <Typography variant="h5">
+              Developpeur React
+            </Typography>
+            <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
+              <Home color="info" />
+              <Typography>
+                Antananarivo, Madagascar
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={2}>
+            <Button variant="contained" sx={{ py: 1, px: 4, borderRadius: 10 }}>
+              Contacter
+            </Button>
+            <Typography py={2}>
+              Contacter par email ou par téléphone pour plus d'informations
+            </Typography>
+            <Box sx={{
+              backgroundColor: "success.main",
+              color: "success.contrastText", width: "fit-content",
+              borderRadius: 10, px: 2, display: "flex", flexDirection: "row",
+              alignItems: "center", gap: 1, py: .3
+            }}>
+              <AccessTime/> <Typography component="span">Disponible</Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 
-const user = {
-    name: "John Doe",
-    jobTitle: "Developpeur frontend",
-    image: "https://i.pravatar.cc/200",
-    description: "Je suis un développeur web passionné et dévoué qui aime relever des défis et apprendre de nouvelles technologies. J'ai une solide expérience en développement front-end et back-end, en utilisant des technologies telles que HTML, CSS, JavaScript, React, Node.js, Python et PHP. J'ai également une bonne compréhension des bases de données et de l'architecture logicielle. Je suis capable de travailler en équipe et de respecter les délais impartis tout en maintenant un haut niveau de qualité dans mon travail. Je suis toujours impatient de découvrir de nouveaux outils et de nouvelles méthodes pour améliorer mes compétences et mon rendement.",
-    address1: "Immeuble 'Le Rova Center' , Avenue de l'Indépendance, Antananarivo 101",
-    address2: "Lot VV 36, Ambodin'ny Fokontany, Ambanja, Diana, Madagascar",
-    skills: ["Maîtrise des langages de programmation web tels que HTML, CSS et JavaScript",
-     "Connaissance des frameworks et des bibliothèques pour le développement web tels que React, Angular et Vue.js ",
-      "Connaissance de l'architecture logicielle et des bases de données"],
-    isActive: false
-}
+export default Profil
+
 
