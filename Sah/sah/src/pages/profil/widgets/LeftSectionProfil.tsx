@@ -62,18 +62,18 @@ const recomandations = [
     },
     {
         name: 'Rolland',
-        image: './assets/profil/sahpofil.png'
+        image: './assets/profil/ansaroll.png'
     },
     {
         name: 'Sahobisoa',
-        image: './assets/profil/sahprofil.png'
+        image: './assets/profil/sahprdofil.png'
     },
     {
         name: 'Eric Roger',
-        image: './assets/profil/sahprofl.png'
+        image: './assets/profil/sahprofil.png'
     },
     {
         name: 'Rakoto',
-        image: './assets/profil/sarofil.png'
+        image: './assets/profil/ansaroll.png'
     }
 ]

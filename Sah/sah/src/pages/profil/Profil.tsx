@@ -32,7 +32,7 @@ const Profil = () => {
 								Developpeur React
 							</Typography>
 							<Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-								<Home color="info" />
+								<Home color="primary" />
 								<Typography>
 									Antananarivo, Madagascar
 								</Typography>
