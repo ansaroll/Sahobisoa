@@ -73,20 +73,16 @@ const Home = () => {
       </Grid>
 
       <Container>
-        <Grid
-          item
-          xs={12}
-          py={{ xs: 2, sm: 4 }}
-        >
+
+        <AboutSection />
+
+        <Grid item xs={12} py={{ xs: 2, sm: 4 }} >
           <Box>
             <Typography variant="h2">
               Comment ça marche ?
             </Typography>
             <Divider sx={{ py: 2, borderColor: "primary" }} />
-            <TextField
-              type="text"
-              fullWidth
-              placeholder="Ex: Développeur web . . ."
+            <TextField type="text" fullWidth placeholder="Ex: Développeur web . . ."
               InputProps={{
                 endAdornment: <InputAdornment position="end" >
                   <IconButton>
@@ -102,9 +98,6 @@ const Home = () => {
         </Grid>
 
 
-        <AboutSection />
-
-        
       </Container>
     </Grid>
   );

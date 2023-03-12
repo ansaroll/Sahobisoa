@@ -3,12 +3,15 @@ import React from 'react'
 import CustomSwipper from '../../../components/atom/CustomSwipper'
 import { SwiperSlide } from 'swiper/react'
 import WeandYouItem from './WeanYouItem'
+import { Handshake, Handyman } from '@mui/icons-material'
 
 const AboutSection = () => {
     return (
-        <Box>
-            <Typography variant='h2' textAlign="center">
-                My Carear et vous c'est quoi ?
+        <Box pt={4}>
+            <Typography variant='h2' textAlign="start">
+                My Carear & vos cartes en main <Handyman color="primary" sx={{
+                     fontSize:"50px"
+                }}/>
             </Typography>
 
             <Grid container py={6} spacing={2}>

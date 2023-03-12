@@ -17,6 +17,7 @@ import { NightModeButton } from "./styled/Atom";
 import { useContext } from "react";
 import { ThemeContext } from "../utils/context";
 import { useMediaQuery, Theme } from "@mui/material";
+import { Work } from "@mui/icons-material";
 
 const pages = [
   { name: "Profils", link: "/profil" },
@@ -73,7 +74,7 @@ const Header = () => {
     <AppBar position="sticky">
       <Container maxWidth={"xl"}>
         <Toolbar disableGutters>
-          <AdbIcon
+          <Work
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
             onClick={() => navigate("/")}
           />
@@ -94,7 +95,7 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
-            SAH
+            MYC.
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
