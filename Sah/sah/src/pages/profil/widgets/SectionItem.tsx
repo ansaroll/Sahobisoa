@@ -1,12 +1,14 @@
 import { Box, Typography } from '@mui/material'
 
-const SectionItem = ({title , children}:PropsSectionItem) => {
+const SectionItem = ({ title, children }: PropsSectionItem) => {
     return (
-        <Box sx={{ border: "1px solid #010101", borderRadius: "10px", p: 4, m: 1 }}>
-            <Typography variant="h5" mb={1}>
+        <Box sx={{ border: "1px solid #010101", borderRadius: "10px", p: 4, m: 2 }}>
+            <Typography variant="h5">
                 {title}
             </Typography>
-            {children}
+            <Box ml={1.5} mt={3}>
+                {children}
+            </Box>
         </Box>
     )
 }

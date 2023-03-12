@@ -3,6 +3,7 @@ import { Box, Button, Grid, Typography } from '@mui/material'
 import React from 'react'
 import SectionItem from './SectionItem'
 import SkilItem from './SkilItem'
+import Experiences from './section/Experiences'
 
 const LeftSectionProfil = () => {
     return (
@@ -36,11 +37,7 @@ const LeftSectionProfil = () => {
 
             <SectionItem title='Moi en quelques mots'>
                 <Typography>
-                    {/* Description de la personne en trois phrases:
-                    - Je suis un developpeur web fullstack avec plus de 3 ans d'experience dans le developpement web
-                    - J'ai travaillé dans plusieurs entreprises et j'ai pu acquérir des compétences dans plusieurs domaines
-                    - Je suis disponible pour travailler dans votre entreprise ou pour des missions freelance.
-                    */}
+                    {/* Description de la personne en trois phrases */}
 
                     - Je suis un developpeur web fullstack avec plus
                     de 3 ans d'experience dans le developpement web.
@@ -51,7 +48,7 @@ const LeftSectionProfil = () => {
                 </Typography>
             </SectionItem >
 
-
+            <Experiences />
         </>
     )
 }
