@@ -35,32 +35,32 @@ export default AboutSection
 const aboutsWeAnYous = [
     {
         title: 'Trouver des projets',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-        image: 'https://picsum.photos/200/300',
+        description: 'Les projets sont des missions qui peuvent être de courte ou longue durée.',
+        image: './assets/profil/projet.jpg',
     },
     {
         title: 'Trouver des clients',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-        image: 'https://picsum.photos/200/300',
+        description: 'Les clients sont des personnes qui ont besoin de vos services.',
+        image: './assets/profil/clients.jpg',
     },
     {
         title: 'Trouver des partenaires',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-        image: 'https://picsum.photos/200/300',
+        description: 'Vos partenaires sont des personnes qui peuvent vous aider à réaliser vos projets.',
+        image: './assets/profil/partenaires.jpg',
     },
     {
         title: 'Trouver des collaborateurs',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-        image: 'https://picsum.photos/200/300',
+        description: 'Les collaborateurs sont des personnes qui peuvent vous aider à réaliser vos projets.',
+        image: './assets/profil/collaborateurs.jpg',
     },
     {
         title: 'Trouver des employeurs',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-        image: 'https://picsum.photos/200/300',
+        description: 'Les employeurs sont des personnes qui peuvent vous embaucher pour réaliser leurs projets.',
+        image: './assets/profil/employeur.jpg',
     },
     {
         title: 'Trouver des employés',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-        image: 'https://picsum.photos/200/300',
+        description: 'Les employés sont des personnes qui peuvent travailler pour vous.',
+        image: './assets/profil/employe.jpg',
     },
 ]
