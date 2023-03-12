@@ -8,11 +8,7 @@ export const StyledGlobalStyle = createGlobalStyle<{isDarkMode:boolean}>`
     }
  
     body {
-        /* Ici cette syntaxe revient au même que
-        background-color: ${props =>
-        props.isDarkMode ? '#2F2E41' : 'white'};
-        */
-        background-color: ${({ isDarkMode }) => (isDarkMode ? '#010010' : '#E2E4E8')};
+        background-color: ${({ isDarkMode }) => (isDarkMode ? '#010010' : 'white')};
         margin: 0;  
     }
 

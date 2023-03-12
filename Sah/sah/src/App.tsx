@@ -11,6 +11,15 @@ import {
 } from "@tanstack/react-query";
 import { SurveyProvider, ThemeDarkLightProvider } from "./utils/context";
 
+
+//theme
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+//core
+import "primereact/resources/primereact.min.css";
+//icons
+import "primeicons/primeicons.css";
+
+
 const queryClient = new QueryClient();
 export const App = () => {
   return (
