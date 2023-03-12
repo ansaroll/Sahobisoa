@@ -9,7 +9,7 @@ const AboutSection = () => {
     return (
         <Box pt={4}>
             <Typography variant='h2' textAlign="start">
-                My Carear & vos cartes en main <Handyman color="primary" sx={{
+                My Career & vos cartes en main <Handyman color="primary" sx={{
                      fontSize:"50px"
                 }}/>
             </Typography>

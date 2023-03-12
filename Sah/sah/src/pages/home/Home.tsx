@@ -55,7 +55,7 @@ const Home = () => {
               }}
               color="primary"
             >
-              MYCAREAR
+              MYCAREER
             </Typography>
           </Box>
 
