@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Box, Container, Divider, Grid, IconButton, InputAdornment, TextField, Theme, Typography, useMediaQuery } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { Freelances } from "../freelances/Freelances";
+import AboutSection from "./widgets/AboutSection";
 
 const Home = () => {
 
@@ -37,20 +38,27 @@ const Home = () => {
             transform: "translateX(-50%)",
           }}
         >
-          <Typography variant={isSmorDown ? 'h3' : "h1"}
-            textTransform={"uppercase"}
-            sx={{
-              fontSize: { xs: "3rem", sm: "4rem", md: "5rem", lg: "6rem", xl: "7rem" },
-              fontWeight: "semi-bold",
-              fontFamily: "Lexend Deca",
-              py: { xs: 4, sm: 4 },
-              letterSpacing: "0.5em",
-              textShadow: "0px 0px 10px rgba(255,255,255,0.6)",
-            }}
-            color="primary"
-          >
-            MYCAREAR
-          </Typography>
+          <Box sx={{
+            backgroundColor: "rgba(255,255,255,0.1)",
+            px: { xs: 2, sm: 4 },
+          }}>
+
+            <Typography variant={isSmorDown ? 'h3' : "h1"}
+              textTransform={"uppercase"}
+              sx={{
+                fontSize: { xs: "3rem", sm: "4rem", md: "5rem", lg: "6rem", xl: "7rem" },
+                fontWeight: "semi-bold",
+                fontFamily: "Lexend Deca",
+                py: { xs: 4, sm: 4 },
+                letterSpacing: "0.5em",
+                textShadow: "0px 0px 10px rgba(255,255,255,0.6)",
+              }}
+              color="primary"
+            >
+              MYCAREAR
+            </Typography>
+          </Box>
+
           <Typography variant="h2" textAlign="start" color="secondary.light"
             sx={{
               fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem", lg: "3rem", xl: "3.5rem" },
@@ -58,7 +66,7 @@ const Home = () => {
             }}
           >
             Connectez-vous avec la communauté des
-            <Typography component="span" variant="inherit" color="primary.light"> passionnés </Typography>
+            <Typography component="span" variant="inherit" color="skyblue"> passionnés </Typography>
             de la tech et donnez un élan à votre carrière.
           </Typography>
         </Container>
@@ -92,6 +100,11 @@ const Home = () => {
             <Freelances />
           </Box>
         </Grid>
+
+
+        <AboutSection />
+
+        
       </Container>
     </Grid>
   );
