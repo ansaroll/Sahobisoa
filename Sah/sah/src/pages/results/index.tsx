@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { JobTitle, ResultsTitle } from "../../components/styled/Atom";
 import { SurveyContext, ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
-import { Box, Button, Card, CardActions, CardContent, CardMedia, CircularProgress, Divider, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CardMedia, CircularProgress, Container, Divider, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import 'swiper/css';
@@ -49,7 +49,7 @@ const Results = () => {
 
 
   return (
-    <>
+    <Container>
       <ResultsTitle theme={theme}>
         <Typography variant="h4">
           Les compétences dont vous avez besoin sont
@@ -157,7 +157,7 @@ const Results = () => {
         })
       }
 
-    </>
+    </Container>
   );
 };
 

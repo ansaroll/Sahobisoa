@@ -1,7 +1,7 @@
 import React from "react";
 import ProfilePage from "./ProfilePage";
 import { Avatar, Badge, Box, Button, Container, Grid, Paper, Typography } from "@mui/material";
-import { AccessTime, Home, PunchClock } from "@mui/icons-material";
+import { AccessTime, Home, LocationCity, PunchClock } from "@mui/icons-material";
 
 const Profil = () => {
 	return (
@@ -41,7 +41,7 @@ const Profil = () => {
 								<Typography>Entreprise </Typography>
 								<Typography>Freelance</Typography>
 							</Box>
-							<Box flex={.4} border={1} borderLeft={0} p={1} 
+							<Box flex={.4} border={1} borderLeft={0} p={1}
 								sx={{ backgroundColor: "success.light" }}
 							>
 								<Typography>Experience </Typography>
@@ -68,8 +68,36 @@ const Profil = () => {
 				</Grid>
 			</Container>
 			<Container maxWidth="lg">
-				<Paper elevation={1} sx={{ height: "100vh"}}>
-
+				<Paper elevation={1} sx={{ height: "100vh" }}>
+					<Grid container justifyContent="space-between">
+						<Grid item xs={4} sx={{ border: "1px solid #010101", borderRadius: "10px", p: 4 }}
+							spacing={2}
+						>
+							<Typography variant="h5">
+								Localisation et déplacement
+							</Typography>
+							<Box display="flex" flexDirection="row" alignItems="center" gap={1} py={1}>
+								<LocationCity color="info" />
+								<Typography>
+									Antananarivo, Madagascar
+								</Typography>
+							</Box>
+							<Box display="flex" flexDirection="row" alignItems="center" gap={1} py={1}>
+								<LocationCity color="info" />
+								<Typography>
+									Antananarivo, Madagascar
+								</Typography>
+							</Box>
+							<Box display="flex" justifyContent="flex-end" pt={2}>
+								<Button variant="contained" >
+									Modifier
+								</Button>
+							</Box>
+						</Grid>
+						<Grid item xs={7.5} sx={{ border: "1px solid black", borderRadius: "10px" }}>
+							Grid 2
+						</Grid>
+					</Grid>
 				</Paper>
 			</Container>
 		</Box>
