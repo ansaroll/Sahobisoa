@@ -3,6 +3,8 @@ import { Avatar, Badge, Box, Button, Container, Grid, Typography } from "@mui/ma
 import { AccessTime, Home } from "@mui/icons-material";
 import RightSectionProfil from "./widgets/RightSectionProfil";
 import LeftSectionProfil from "./widgets/LeftSectionProfil";
+// PrimeReact
+import { Rating } from "primereact/rating";
 
 const Profil = () => {
 	return (
@@ -47,6 +49,9 @@ const Profil = () => {
 									<Typography>2 - 7 ans</Typography>
 								</Box>
 							</Box>
+							<Rating value={5} readOnly cancel={false} 
+								
+							/>
 						</Grid>
 						<Grid item xs={12} sm={6} md={2}>
 							<Button variant="contained" sx={{ py: 1, px: 4, borderRadius: 10 }}>

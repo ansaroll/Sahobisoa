@@ -13,7 +13,7 @@ import { SurveyProvider, ThemeDarkLightProvider } from "./utils/context";
 
 
 //theme
-import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/themes/vela-blue/theme.css";
 //core
 import "primereact/resources/primereact.min.css";
 //icons
