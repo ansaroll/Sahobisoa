@@ -28,6 +28,6 @@ export default IconAndText
 type PropsIconAndText = {
     icon?: React.ReactNode,
     name?: string,
-    variant?: 'h5' | 'h6' | 'subtitle1' | 'subtitle2' | 'body1' | 'body2' | 'button' | 'caption' | 'overline' | undefined,
+    variant?:  'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'subtitle1' | 'subtitle2' | 'body1' | 'body2' | 'button' | 'caption' | 'overline' | undefined,
     href?: string
 }

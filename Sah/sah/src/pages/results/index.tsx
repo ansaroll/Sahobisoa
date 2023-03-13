@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import 'swiper/css';
 import { Freelances } from "../freelances/Freelances";
+import MainLoader from "../../components/atom/MainLoader";
+import ScreenMessage from "../../components/atom/ScreenMessage";
 
 export function formatJobList({ title, listLength, index }: any): string {
   if (index === listLength - 1) {
@@ -37,7 +39,7 @@ const Results = () => {
   const isMdOrDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
 
-  const { data: results } = useQuery<Array<TResultsSkills>>(["survey"], async () => {
+  const { data: results, isLoading: isGettingResultsLoading } = useQuery<Array<TResultsSkills>>(["survey"], async () => {
     const res = await fetch(`http://localhost:8000/results?${queryParams}`);
     return await res.json();
   });
@@ -47,13 +49,18 @@ const Results = () => {
     return await res.json()
   });
 
+  if (isLoading || isGettingResultsLoading) {
+    return (
+      <>
+        <MainLoader />
+      </>
+    )
+  }
+
 
   return (
     <Container>
       <ResultsTitle theme={theme}>
-        <Typography variant="h4">
-          Les compétences dont vous avez besoin sont
-        </Typography>
         <Typography variant={isMdOrDown ? "h4" : "h3"} style={{
           wordBreak: "break-word",
           width: "100%",
@@ -68,9 +75,13 @@ const Results = () => {
 
           {
             (!results?.length && !isLoading) &&
-            <Typography>
-              Il semble que vous n'avez paa besoin des competences :D
-            </Typography>
+            <ScreenMessage>
+              <>
+                <Typography variant="h2">
+                  Il semble que vous n'avez pas besoin des competences 🤗 .
+                </Typography>
+              </>
+            </ScreenMessage>
           }
           {
             (!!results?.length && !isLoading) &&

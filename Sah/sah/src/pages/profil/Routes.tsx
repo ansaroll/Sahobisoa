@@ -1,10 +1,10 @@
 import { lazy } from 'react';
 
-const Register = lazy(() => import('./Profil'));
+const Profil = lazy(() => import('./Profil'));
 
 export const ProfilRoutes = [
     {
         path: '/profil',
-        element: <Register />
+        element: <Profil />
     }
 ]
