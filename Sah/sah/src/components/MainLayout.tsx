@@ -4,6 +4,7 @@ import { Outlet } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
 import GlobalStyle from "../utils/style/GlobaleStyle";
+import MainLoader from "./atom/MainLoader";
 
 export const MainLayout = (props: Props) => {
   return (
@@ -12,7 +13,7 @@ export const MainLayout = (props: Props) => {
       {
         !props.isHeaderHidden && <Header />
       }
-      <Suspense fallback={<CircularProgress />}>
+      <Suspense fallback={<MainLoader />}>
         <Outlet />
       </Suspense>
       {

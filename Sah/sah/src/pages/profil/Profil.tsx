@@ -5,6 +5,7 @@ import RightSectionProfil from "./widgets/RightSectionProfil";
 import LeftSectionProfil from "./widgets/LeftSectionProfil";
 // PrimeReact
 import { Rating } from "primereact/rating";
+import GenericDialog from "../../components/dialog/GenericDialog";
 
 const Profil = () => {
 	return (
@@ -80,6 +81,22 @@ const Profil = () => {
 					</Grid>
 				</Grid>
 			</Container>
+
+			<GenericDialog
+				open={true}
+				title="Modification de votre profil"
+				confirmText={
+					<Button variant="contained">
+						Modifier
+					</Button>
+				}
+				cancelText="Annuler"
+				maxWidth="md"
+			>
+				<>
+					<Typography>Modification de votre profil</Typography>
+				</>
+			</GenericDialog>
 		</Box>
 	);
 };
