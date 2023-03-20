@@ -92,7 +92,7 @@ const Profil = () => {
 
 			<GenericDialog
 				open={openEditProfil}
-				title="Modification de votre profil"
+				title="Learn Redux Toolkit"
 				confirmText={
 					<Button variant="contained">
 						Modifier

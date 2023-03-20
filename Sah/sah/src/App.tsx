@@ -10,6 +10,8 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import { SurveyProvider, ThemeDarkLightProvider } from "./utils/context";
+import { Provider as ReduxProvider } from "react-redux"
+import store  from "./app/store"
 
 
 //theme
@@ -24,17 +26,21 @@ const queryClient = new QueryClient();
 export const App = () => {
   return (
     <>
-      <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-          <ThemeDarkLightProvider>
-            <SurveyProvider>
-              <ThemeProvider theme={createTheme({ ...DefaultTheme, ...Theme })}>
-                <Routes routes={AllRoutes} />
-              </ThemeProvider>
-            </SurveyProvider>
-          </ThemeDarkLightProvider>
-        </QueryClientProvider>
-      </BrowserRouter>
+      <ReduxProvider
+        store={store}
+      >
+        <BrowserRouter>
+          <QueryClientProvider client={queryClient}>
+            <ThemeDarkLightProvider>
+              <SurveyProvider>
+                <ThemeProvider theme={createTheme({ ...DefaultTheme, ...Theme })}>
+                  <Routes routes={AllRoutes} />
+                </ThemeProvider>
+              </SurveyProvider>
+            </ThemeDarkLightProvider>
+          </QueryClientProvider>
+        </BrowserRouter>
+      </ReduxProvider>
     </>
   );
 };
