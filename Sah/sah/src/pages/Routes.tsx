@@ -6,6 +6,7 @@ import Home from "./home/Home";
 import Results from "./results";
 import { AccountRoutes } from "./account/Routes";
 import { ProfilRoutes } from "./profil/Routes";
+import { SettingsRoutes } from "./settings/Routes";
 
 export const AllRoutes = [
     {
@@ -29,7 +30,8 @@ export const AllRoutes = [
                 element: <Freelances />,
             },
             ...AccountRoutes,
-            ...ProfilRoutes
+            ...ProfilRoutes,
+            ...SettingsRoutes
         ],
     },
     {
