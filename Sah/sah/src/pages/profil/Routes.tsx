@@ -6,5 +6,9 @@ export const ProfilRoutes = [
     {
         path: '/profil',
         element: <Profil />
+    },
+    {
+        path: '/myprofil',
+        element: <Profil />
     }
 ]

@@ -6,8 +6,14 @@ import LeftSectionProfil from "./widgets/LeftSectionProfil";
 // PrimeReact
 import { Rating } from "primereact/rating";
 import GenericDialog from "../../components/dialog/GenericDialog";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import EditProfilInfo from "./widgets/EditProfilInfo";
 
 const Profil = () => {
+	const [openEditProfil, setOpenEditProfil] = useState(false);
+	const location = useLocation();
+	const onEdit = location.pathname.includes("myprofil");
 	return (
 		<Box pb={10}>
 			<Box sx={{ boxShadow: "0px 0px 20px -5px rgba(0,0,0,0.55)" }} >
@@ -38,7 +44,9 @@ const Profil = () => {
 									Antananarivo, Madagascar
 								</Typography>
 							</Box>
-							<Box display="flex" width="100%" py={1}>
+							<Box display="flex" width="100%" py={1}
+								onClick={onEdit ? () => setOpenEditProfil(true) : undefined}
+							>
 								<Box flex={.4} border={1} p={1}>
 									<Typography>Entreprise </Typography>
 									<Typography>Freelance</Typography>
@@ -83,7 +91,7 @@ const Profil = () => {
 			</Container>
 
 			<GenericDialog
-				open={true}
+				open={openEditProfil}
 				title="Modification de votre profil"
 				confirmText={
 					<Button variant="contained">
@@ -92,10 +100,9 @@ const Profil = () => {
 				}
 				cancelText="Annuler"
 				maxWidth="md"
+				onClose={() => setOpenEditProfil(false)}
 			>
-				<>
-					<Typography>Modification de votre profil</Typography>
-				</>
+				<EditProfilInfo />
 			</GenericDialog>
 		</Box>
 	);
