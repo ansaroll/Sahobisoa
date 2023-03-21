@@ -6,13 +6,22 @@ interface IUserState {
   value: TUser;
 }
 
+const initialState = {
+  value: {
+    id: "Sah.20923",
+    lastName: "ANDRIANIAINA",
+    firstName: "Sahobisoa Rolland",
+    email: "ansarollmg@gmail.com",
+    jobTitle: "Développeur Web",
+    street: "Rue de la Paix",
+    city: "Antananarivo",
+    state: "Antananarivo",
+  } as TUser,
+} as IUserState;
+
 export const userSlice = createSlice({
   name: "user",
-  initialState: {
-    value: {
-      lastName: "Rolland",
-    } as TUser,
-  } as IUserState,
+  initialState,
   reducers: {
     addUser: (state, action: PayloadAction<TUser>) => {
       state.value = action.payload;

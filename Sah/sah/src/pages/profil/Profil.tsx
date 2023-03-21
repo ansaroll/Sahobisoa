@@ -10,7 +10,6 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import EditProfilInfo from "./widgets/EditProfilInfo";
 import { useAppSelector } from "../../app/hooks";
-import { useSelector } from "react-redux";
 
 const Profil = () => {
 	const [openEditProfil, setOpenEditProfil] = useState(false);
