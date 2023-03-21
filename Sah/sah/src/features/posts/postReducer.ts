@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface IPostState {
+    posts: TPost[];
+}
+
 export const postSlice = createSlice({
     name: "posts",
     initialState: {
         posts:[] as TPost[],
-    },
+    } as IPostState,
     reducers: {
         addPost: (state, action) => {
             state.posts.push(action.payload);

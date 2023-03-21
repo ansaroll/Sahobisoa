@@ -11,7 +11,7 @@ import {
 } from "@tanstack/react-query";
 import { SurveyProvider, ThemeDarkLightProvider } from "./utils/context";
 import { Provider as ReduxProvider } from "react-redux"
-import store  from "./app/store"
+import { store } from "./app/store"
 
 
 //theme

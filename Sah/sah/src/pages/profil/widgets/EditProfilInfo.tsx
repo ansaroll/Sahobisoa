@@ -1,46 +1,31 @@
 import { Box, Button, Grid, TextField } from '@mui/material'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment } from '../../../features/counter/counterSlice'
+import { useAppDispatch , useAppSelector } from '../../../app/hooks'
+import { updateUser, selectUser } from '../../../features/user/userReducer'
 
 const EditProfilInfo = () => {
 
-  const count = useSelector((state: any) => state.counter.value)
-  const dispatch = useDispatch()
+  const user = useAppSelector((state) => state.user?.value)
+  const dispatch = useAppDispatch()
 
+  console.log({user});
+  
 
   return (
     <>
       <Grid>
         <TextField
-          type="number"
-          value={count}
+          type="text"
+          value={user?.lastName}
           inputProps={{
             min: 0,
             style: { textAlign: 'center' }
           }}
+          onChange={(e) => dispatch(updateUser({ ...user, lastName: e.target.value }))}
         >
 
         </TextField>
-        <Box
-          p={1}
-          display="flex"
-          flexDirection="row"
-          justifyContent="space-between"
-          alignItems="center"
-          gap={1}
-        >
-          <Button variant="contained"
-            onClick={() => dispatch(increment())}
-          >
-            +
-          </Button>
-          <Button variant="contained"
-            onClick={() => dispatch(decrement())}
-          >
-            -
-          </Button>
-        </Box>
       </Grid>
     </>
   )

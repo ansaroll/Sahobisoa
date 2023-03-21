@@ -9,11 +9,15 @@ import GenericDialog from "../../components/dialog/GenericDialog";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import EditProfilInfo from "./widgets/EditProfilInfo";
+import { useAppSelector } from "../../app/hooks";
+import { useSelector } from "react-redux";
 
 const Profil = () => {
 	const [openEditProfil, setOpenEditProfil] = useState(false);
 	const location = useLocation();
 	const onEdit = location.pathname.includes("myprofil");
+	const user = useAppSelector((state) => state.user?.value)
+	
 	return (
 		<Box pb={10}>
 			<Box sx={{ boxShadow: "0px 0px 20px -5px rgba(0,0,0,0.55)" }} >
@@ -33,7 +37,7 @@ const Profil = () => {
 							alignItems="start"
 						>
 							<Typography variant="h4">
-								Sahobisoa Rolland ANDRIANIAINA
+								{user?.lastName}
 							</Typography>
 							<Typography variant="h5">
 								Developpeur React

@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface ICommentState {
+    comments: TComment[];
+}
+
 export const commentSlice = createSlice({
     name: "comments",
     initialState: {
         comments:[] as TComment[],
-    },
+    } as ICommentState,
     reducers: {
         addComment: (state, action) => {
             state.comments.push(action.payload);
