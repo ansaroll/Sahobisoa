@@ -21,6 +21,9 @@ export type TUser = {
     youtube?: string;
     dateJoined?: string;
     dateLastActive?: string;
+    society?: string;
+    xp?: number;
+    isFreelancer?: boolean;
     posts?: string[];
     comments?: string[];
     reactions?: TReaction[];
