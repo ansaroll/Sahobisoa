@@ -16,6 +16,10 @@ const initialState = {
     street: "Rue de la Paix",
     city: "Antananarivo",
     state: "Antananarivo",
+    phone: "034 12 345 67",
+    bio: `Je suis un developpeur web fullstack avec plus de 3 ans d'experience dans le developpement web. 
+    J'ai travaillé dans plusieurs entreprises et j'ai pu acquérir des compétences dans plusieurs domaines. 
+    Je suis disponible pour travailler dans votre entreprise ou pour des missions freelance.`
   } as TUser,
 } as IUserState;
 
