@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SectionItem from '../SectionItem'
-import { Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import IconAndText from '../../../../components/atom/IconAndText'
 import { Facebook, GitHub, LinkedIn } from '@mui/icons-material'
+import EditSomeLinkSection from './EditSomeLinkSection'
+import GenericDialog from '../../../../components/dialog/GenericDialog'
+import { useLocation } from 'react-router-dom'
 
 const SomeLinkSection = () => {
+    const [openEditProfil, setOpenEditProfil] = useState(false);
+    const location = useLocation();
+    const onEdit = location.pathname.includes("myprofil");
+
     return (
         <>
             <SectionItem title='Liens Extra'>
@@ -24,12 +31,36 @@ const SomeLinkSection = () => {
                 />
                 {/* Logo et lien Facebook */}
                 <IconAndText
-                    icon={<Facebook color='info'/>}
+                    icon={<Facebook color='info' />}
                     name="Facebook"
                     variant='h6'
                     href='https://www.facebook.com/ansaroll.sa/'
                 />
+
+                {onEdit && (
+                    <Box display="flex" justifyContent="flex-end" pt={2}>
+                        <Button variant="contained" onClick={() => setOpenEditProfil(true)} >
+                            Modifier
+                        </Button>
+                    </Box>
+                )}
+
             </SectionItem>
+
+            <GenericDialog
+                open={openEditProfil}
+                title="Modifier vos liens extra"
+                confirmText={
+                    <Button variant="contained">
+                        Modifier
+                    </Button>
+                }
+                cancelText="Annuler"
+                maxWidth="md"
+                onClose={() => setOpenEditProfil(false)}
+            >
+                <EditSomeLinkSection />
+            </GenericDialog>
         </>
     )
 }

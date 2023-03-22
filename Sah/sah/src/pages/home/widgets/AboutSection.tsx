@@ -8,8 +8,9 @@ import { Handshake, Handyman } from '@mui/icons-material'
 const AboutSection = () => {
     return (
         <Box pt={4}>
-            <Typography variant='h2' textAlign="start">
-                My Career & vos cartes en main <Handyman color="primary" sx={{
+            <Typography variant='h2' textAlign="start" alignContent="center" alignItems="center" alignSelf="center">
+                My Career & vos cartes en main
+                <Handyman color="primary" sx={{
                      fontSize:"50px"
                 }}/>
             </Typography>
