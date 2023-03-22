@@ -47,7 +47,7 @@ export const Freelances = () => {
         alignItems="center"
         alignContent="center"
       >
-        {data?.map((profile, index) => (
+        {data && data?.map((profile, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card
             key={`${profile.name}-${index}`}

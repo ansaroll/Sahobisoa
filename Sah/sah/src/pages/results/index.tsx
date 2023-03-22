@@ -67,14 +67,14 @@ const Results = () => {
         }}>
 
           {
-            isLoading &&
+            (isLoading || isGettingResultsLoading) &&
             <Box width="100%" display="flex" justifyContent="center" py={4}>
               <CircularProgress />
             </Box>
           }
 
           {
-            (!results?.length && !isLoading) &&
+            (!results?.length && !isLoading && !isGettingResultsLoading) &&
             <ScreenMessage>
               <>
                 <Typography variant="h2">
@@ -102,7 +102,7 @@ const Results = () => {
       </ResultsTitle>
 
       {
-        (!!results?.length && !isLoading) &&
+        (!!results?.length && !isLoading && !isGettingResultsLoading) &&
         results?.map((result: any, index: number) => {
           return (
             <Box pb={10}>
