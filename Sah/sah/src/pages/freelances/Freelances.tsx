@@ -17,10 +17,9 @@ export const Freelances = () => {
   const { theme } = useContext(ThemeContext);
   const { data, isLoading } = useQuery<Array<Freelances>>(
     ["freelanceProfiles"],
-    () => {
-      return fetch(`http://localhost:8000/freelances`).then((res) =>
-        res.json()
-      );
+    async () => {
+      const res = await fetch(`http://localhost:8000/freelances`);
+      return await res.json();
     }
   );
 

@@ -10,18 +10,14 @@ const Home = () => {
 
   return (
     <Grid container overflow="hidden" mb={10}>
-      <Grid
-        item
-        xs={12}
-        display="flex"
+      <Grid item xs={12} display="flex"
         justifyContent="center"
         alignItems="center"
         position="relative"
         height="100vh"
       >
         <img
-          width="100%"
-          height="100%"
+          width="100%" height="100%"
           src={"/assets/home/sora-shimazaki.jpg"}
           alt="Illustration"
           style={{
