@@ -15,6 +15,7 @@ const Profil = () => {
 	const [openEditProfil, setOpenEditProfil] = useState(false);
 	const location = useLocation();
 	const onEdit = location.pathname.includes("myprofil");
+
 	const user = useAppSelector((state) => state.user?.value)
 	
 	return (
