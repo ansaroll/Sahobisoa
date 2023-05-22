@@ -40,12 +40,12 @@ const Results = () => {
 
 
   const { data: results, isLoading: isGettingResultsLoading } = useQuery<Array<TResultsSkills>>(["survey"], async () => {
-    const res = await fetch(`http://localhost:8000/results?${queryParams}`);
+    const res = await fetch(`https://cyan-juvenile-drain.glitch.me/results?${queryParams}`);
     return await res.json();
   });
 
   const { data: freelances, isLoading } = useQuery<Array<Freelances>>(["freelanceProfiles"], async () => {
-    const res = await fetch(`http://localhost:8000/freelances`)
+    const res = await fetch(`https://cyan-juvenile-drain.glitch.me/freelances`)
     return await res.json()
   });
 

@@ -9,7 +9,7 @@ import { render } from './utils/render'
  
 const server = setupServer(
     // On précise ici l'url qu'il faudra "intercepter"
-    rest.get('http://localhost:8000/freelances', (req, res, ctx) => {
+    rest.get('https://cyan-juvenile-drain.glitch.me/freelances', (req, res, ctx) => {
         // Là on va pouvoir passer les datas mockées dans ce qui est retourné en json
         return res(ctx.json(freelancersMockedData))
 
