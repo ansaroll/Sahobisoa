@@ -1,28 +1,11 @@
 import { Box, Button, Chip, Container, Dialog, DialogContent, DialogContentText, DialogTitle, Divider, Grid, Paper, TextField, Typography } from '@mui/material'
 import React from 'react'
-import { auth, providerAutGoogle, providerAuthGithub } from '../../firebase'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
-import { Verified, VerifiedOutlined } from '@mui/icons-material'
+import { auth, providerAutGoogle } from '../../firebase'
+import { signInWithPopup  } from "firebase/auth"
+import { Verified } from '@mui/icons-material'
 const Login = () => {
 
-    providerAuthGithub.setCustomParameters({ prompt: 'select_account' });
     const [user, setUser] = React.useState<TUser | undefined>(undefined)
-
-    const handleSignWithGithub = () => {
-        signInWithPopup(auth, providerAuthGithub)
-            .then((result) => {
-                // Connexion réussie
-                const user = result.user;
-                setUser(v => ({ ...v, displayName: user.displayName || "" }))
-                console.log("Connecté avec succès en tant que", user.displayName);
-            })
-            .catch((error) => {
-                // Erreur de connexion
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log("Erreur de connexion", errorMessage);
-            });
-    }
 
     const handleSignIn = () => {
         signInWithPopup(auth, providerAutGoogle)

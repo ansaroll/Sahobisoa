@@ -11,11 +11,11 @@ const AboutSection = () => {
             <Typography variant='h2' textAlign="start" alignContent="center" alignItems="center" alignSelf="center">
                 My Career & vos cartes en main
                 <Handyman color="primary" sx={{
-                     fontSize:"50px"
-                }}/>
+                    fontSize: "50px", mx: 2
+                }} />
             </Typography>
 
-            <Grid container py={6} spacing={2}>
+            <Grid container py={6} spacing={4}>
                 {
                     aboutsWeAnYous.map((about, index) => {
                         return (
@@ -59,7 +59,7 @@ const aboutsWeAnYous = [
     },
     {
         title: 'Trouver des employeurs',
-        description: 'Les employeurs sont des personnes qui peuvent vous embaucher pour réaliser leurs projets.',
+        description: 'Les employeurs sont ceux qui peuvent vous embaucher pour réaliser leurs projets.',
         image: './assets/profil/employeur.jpg',
     },
     {

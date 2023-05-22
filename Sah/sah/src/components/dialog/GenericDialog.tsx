@@ -24,9 +24,7 @@ const GenericDialog = (props: Props) => {
             }}
         >
             <DialogTitle>
-                {
-                    props.title
-                }
+                { props.title }
             </DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-slide-description">

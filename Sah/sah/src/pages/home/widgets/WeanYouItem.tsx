@@ -3,7 +3,7 @@ import React from 'react'
 
 const WeandYouItem = (props: PropsWeandYouItem) => {
     return (
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345 }} elevation={0}>
                 <CardMedia
                     component="img"
                     alt="green iguana"

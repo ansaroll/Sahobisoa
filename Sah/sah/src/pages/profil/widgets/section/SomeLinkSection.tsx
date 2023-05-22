@@ -6,6 +6,7 @@ import { Facebook, GitHub, LinkedIn } from '@mui/icons-material'
 import EditSomeLinkSection from './EditSomeLinkSection'
 import GenericDialog from '../../../../components/dialog/GenericDialog'
 import { useLocation } from 'react-router-dom'
+import BtnEdit from './BtnEdit'
 
 const SomeLinkSection = () => {
     const [openEditProfil, setOpenEditProfil] = useState(false);
@@ -37,13 +38,7 @@ const SomeLinkSection = () => {
                     href='https://www.facebook.com/ansaroll.sa/'
                 />
 
-                {onEdit && (
-                    <Box display="flex" justifyContent="flex-end" pt={2}>
-                        <Button variant="contained" onClick={() => setOpenEditProfil(true)} >
-                            Modifier
-                        </Button>
-                    </Box>
-                )}
+                <BtnEdit onClick={setOpenEditProfil} />
 
             </SectionItem>
 

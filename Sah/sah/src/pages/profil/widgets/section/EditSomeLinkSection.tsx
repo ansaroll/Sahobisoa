@@ -21,7 +21,6 @@ const EditSomeLinkSection = () => {
                         fullWidth
                         value={userFormData?.github}
                         inputProps={{
-                            min: 0,
                             style: { textAlign: 'center' }
                         }}
                         onChange={(e) => setUserFormData({ ...user, github: e.target.value })}

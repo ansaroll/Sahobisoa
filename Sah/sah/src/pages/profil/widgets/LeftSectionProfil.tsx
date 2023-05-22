@@ -1,11 +1,22 @@
-import { LocationCity } from '@mui/icons-material'
-import { Box, Button, Grid, Typography } from '@mui/material'
+import { Edit, LocationCity } from '@mui/icons-material'
+import { Box, Button, Grid, IconButton, Typography } from '@mui/material'
 import React from 'react'
 import SectionItem from './SectionItem'
 import SkilItem from './SkilItem'
 import Experiences from './section/Experiences'
+import { useLocation } from 'react-router-dom'
+import { useAppSelector } from '../../../app/hooks'
+import GenericDialog from '../../../components/dialog/GenericDialog'
+import EditDescription from './EditDescription'
+import BtnEdit from './section/BtnEdit'
 
 const LeftSectionProfil = () => {
+
+    const location = useLocation();
+    const user = useAppSelector((state) => state.user?.value)
+    const onEdit = location.pathname.includes("myprofil");
+    const [openEditProfil, setOpenEditProfil] = React.useState(false)
+
     return (
         <>
             <SectionItem title='Competences' >
@@ -36,19 +47,34 @@ const LeftSectionProfil = () => {
 
 
             <SectionItem title='Moi en quelques mots'>
-                <Typography>
-                    {/* Description de la personne en trois phrases */}
-
-                    - Je suis un developpeur web fullstack avec plus
-                    de 3 ans d'experience dans le developpement web.
-                    J'ai travaillé dans plusieurs entreprises et
-                    j'ai pu acquérir des compétences dans plusieurs domaines.
-                    Je suis disponible pour travailler dans votre entreprise ou
-                    pour des missions freelance.
-                </Typography>
+                <>
+                    <Typography>
+                        {'- ' + user?.bio}
+                    </Typography>
+                    
+                    <BtnEdit onClick={setOpenEditProfil} />
+                </>
             </SectionItem >
 
             <Experiences />
+
+
+            {/* GenericDialog */}
+
+            <GenericDialog
+                open={openEditProfil}
+                title="Modifier votre description pour que les autres utilisateurs vous connaissent mieux"
+                confirmText={
+                    <Button variant="contained">
+                        Modifier
+                    </Button>
+                }
+                cancelText="Annuler"
+                maxWidth="md"
+                onClose={() => setOpenEditProfil(false)}
+            >
+                <EditDescription />
+            </GenericDialog>
         </>
     )
 }

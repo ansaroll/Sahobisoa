@@ -2,26 +2,38 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Box, Button, Container, Grid, IconButton, InputAdornment, Paper, TextField, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { ThemeContext } from '../../utils/context';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../firebase'
 
 const SignUp = () => {
 
     const { theme } = useContext(ThemeContext);
 
     const [showPassword, setShowPassword] = React.useState(false);
-
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
-
     const [showPassword1, setShowPassword1] = React.useState(false);
-
     const handleClickShowPassword1 = () => setShowPassword1((show) => !show);
-
     const handleMouseDownPassword1 = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
+
+    const handleSignUpWithEmail = (email: string, password: string) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log("Inscription réussie", user);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+    }
     return (
         <Container>
             <Grid container>
@@ -94,7 +106,9 @@ const SignUp = () => {
                                 </Grid>
                             </Grid>
                             <Box>
-                                <Button variant='contained'>
+                                <Button variant='contained'
+                                    onClick={() => handleSignUpWithEmail("ansarollmg+12@gmail.com", "password")}
+                                >
                                     S'inscrire
                                 </Button>
                             </Box>

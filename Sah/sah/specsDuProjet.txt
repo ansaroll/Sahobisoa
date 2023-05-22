@@ -1,0 +1,87 @@
+Profils d'utilisateurs : 
+Permettre aux utilisateurs de créer un profil en fournissant des informations sur leur expérience professionnelle, 
+leur formation, leurs compétences et leurs centres d'intérêt. Les profils peuvent être utilisés pour aider les
+ recruteurs à trouver des candidats potentiels pour des emplois.
+
+Offres d'emploi : 
+Permettre aux entreprises de publier des offres d'emploi pour des postes dans le secteur de la technologie. 
+Les candidats peuvent postuler directement à partir de l'application et les employeurs peuvent recevoir des notifications 
+lorsque des candidats postulent.
+
+Recherche d'emploi : 
+Permettre aux utilisateurs de rechercher des emplois en utilisant des 
+filtres tels que le lieu, le type d'emploi, le niveau d'expérience, etc.
+
+Projets collaboratifs : 
+Permettre aux utilisateurs de créer des projets collaboratifs et d'inviter 
+d'autres utilisateurs à y participer. Les projets peuvent être utilisés pour 
+développer des compétences techniques, élargir les réseaux professionnels et éventuellement générer des opportunités d'emploi.
+
+Réseautage :
+ Permettre aux utilisateurs de se connecter avec d'autres professionnels de l'industrie, 
+ de suivre leurs activités, de recommander leurs compétences et d'échanger des informations sur les tendances et les opportunités.
+
+Formation et développement professionnel : 
+Offrir des ressources de formation en ligne, telles que des cours, des ateliers et des webinaires 
+pour aider les utilisateurs à développer leurs compétences techniques et leur carrière.
+
+Actualités et analyses de l'industrie : 
+Fournir des mises à jour régulières sur les tendances et les développements de l'industrie, 
+ainsi que des analyses et des opinions d'experts.
+
+Forums de discussion : 
+Permettre aux utilisateurs de participer à des discussions 
+en ligne sur des sujets liés à la technologie et à l'industrie.
+
+Notifications personnalisées : 
+Envoyer des notifications personnalisées aux utilisateurs sur des offres d'emploi, 
+des événements, des mises à jour de profils et d'autres informations pertinentes.
+
+Analyse de données : Fournir des outils d'analyse de données pour aider les 
+utilisateurs à comprendre les tendances et les opportunités de l'industrie, 
+ainsi que les compétences techniques les plus demandées.
+
+
+
+Cartographie de l'industrie : 
+Fournir une carte interactive de l'industrie de la technologie à Madagascar, montrant les entreprises, les incubateurs, 
+les accélérateurs, les espaces de coworking, les établissements d'enseignement, les événements et les communautés.
+
+Bibliothèque de ressources : 
+Offrir une bibliothèque en ligne de ressources, telles que des livres blancs, 
+des études de cas, des présentations, des vidéos et des outils pratiques, pour aider les utilisateurs 
+à apprendre de nouvelles compétences, à se tenir informés des tendances et à améliorer leurs pratiques.
+
+Mentorat : 
+Permettre aux utilisateurs de se connecter avec des mentors professionnels de l'industrie de la technologie à 
+Madagascar, qui peuvent les aider à naviguer dans leur carrière, à acquérir de nouvelles compétences, à développer 
+leur réseau et à trouver des opportunités d'emploi.
+
+Événements : 
+Fournir une liste d'événements locaux liés à la technologie, tels que des conférences, 
+des ateliers, des hackathons et des meetups, permettant aux utilisateurs de s'inscrire et de participer.
+
+Évaluation de compétences : 
+Offrir des outils d'évaluation de compétences en ligne, permettant aux utilisateurs de tester leurs 
+connaissances techniques et de recevoir des recommandations pour améliorer leurs compétences.
+
+Forum d'entraide : 
+Permettre aux utilisateurs de poser des questions et d'obtenir des réponses de la part de la communauté sur 
+des sujets tels que la résolution de problèmes techniques, la recherche d'informations sur les entreprises, les opportunités de stage, etc.
+
+Critiques d'entreprise : 
+Permettre aux utilisateurs de laisser des avis et des commentaires sur les entreprises de technologie de 
+Madagascar pour aider les autres utilisateurs à prendre des décisions éclairées lorsqu'ils recherchent un emploi ou un partenariat commercial.
+
+Profils d'entreprise : 
+Permettre aux entreprises de créer un profil en fournissant des informations sur leur historique, 
+leur culture, leur mission, leur produit ou service, leur technologie, leur clientèle et leurs projets.
+
+Communauté de partage : 
+Permettre aux utilisateurs de partager des ressources, des projets, des idées et 
+des expériences avec la communauté, en créant des groupes et des forums de discussion.
+
+Programme de parrainage : 
+Offrir un programme de parrainage pour encourager les utilisateurs à inviter leurs amis et collègues à 
+rejoindre la communauté et à bénéficier des avantages de l'application web.
+

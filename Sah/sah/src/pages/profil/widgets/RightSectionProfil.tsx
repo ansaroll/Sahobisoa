@@ -1,33 +1,60 @@
-import { LocationCity } from '@mui/icons-material'
+import { Email, LocationCity, Phone } from '@mui/icons-material'
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import SectionItem from './SectionItem'
 import SomeLinkSection from './section/SomeLinkSection'
+import GenericDialog from '../../../components/dialog/GenericDialog'
+import EditDescription from './EditDescription'
+import { useLocation } from 'react-router-dom'
+import EditContact from './EditContact'
+import { useAppSelector } from '../../../app/hooks'
+import BtnEdit from './section/BtnEdit'
 
 const RightSectionProfil = () => {
+
+    const location = useLocation();
+    const user = useAppSelector((state) => state.user?.value)
+    const onEdit = location.pathname.includes("myprofil");
+    const [openEditProfil, setOpenEditProfil] = React.useState(false)
+
     return (
         <>
             <SectionItem title=" Localisation et déplacement">
                 <Box display="flex" flexDirection="row" alignItems="center" gap={1} py={1}>
-                    <LocationCity color="primary" />
+                    <Email color="primary" />
                     <Typography>
-                        Antananarivo, Madagascar
+                        {user?.email}
                     </Typography>
                 </Box>
                 <Box display="flex" flexDirection="row" alignItems="center" gap={1} py={1}>
-                    <LocationCity color="primary" />
+                    <Phone color="primary" />
                     <Typography>
-                        Antananarivo, Madagascar
+                        {user?.phone}
                     </Typography>
                 </Box>
-                {/* <Box display="flex" justifyContent="flex-end" pt={2}>
-                    <Button variant="contained" >
-                        Modifier
-                    </Button>
-                </Box> */}
+
+                <BtnEdit onClick={setOpenEditProfil} />
+                
             </SectionItem>
 
-            <SomeLinkSection/>
+            <SomeLinkSection />
+
+            {/* GenericDialog */}
+
+            <GenericDialog
+                open={openEditProfil}
+                title="Modifier vos contacts"
+                confirmText={
+                    <Button variant="contained">
+                        Modifier
+                    </Button>
+                }
+                cancelText="Annuler"
+                maxWidth="md"
+                onClose={() => setOpenEditProfil(false)}
+            >
+                <EditContact />
+            </GenericDialog>
         </>
     )
 }
