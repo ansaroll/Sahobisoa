@@ -18,7 +18,7 @@ export const Freelances = () => {
   const { data, isLoading } = useQuery<Array<Freelances>>(
     ["freelanceProfiles"],
     () => {
-      return fetch(`http://localhost:8000/freelances`).then((res) =>
+      return fetch(`https://cyan-juvenile-drain.glitch.me/freelances`).then((res) =>
         res.json()
       );
     }
