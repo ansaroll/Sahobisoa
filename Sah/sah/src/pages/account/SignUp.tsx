@@ -2,8 +2,9 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Box, Button, Container, Grid, IconButton, InputAdornment, Paper, TextField, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { ThemeContext } from '../../utils/context';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../../firebase'
+import { useForm, SubmitHandler } from "react-hook-form";
+import useSignUp from './hooks/useSignUp';
+import { TUser } from '../../models/User';
 
 const SignUp = () => {
 
@@ -20,20 +21,14 @@ const SignUp = () => {
         event.preventDefault();
     };
 
-    const handleSignUpWithEmail = (email: string, password: string) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log("Inscription réussie", user);
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-            });
-    }
+    const { handleSignUpWithEmail } = useSignUp()
+
+    const { register, handleSubmit, watch, formState: { errors }, } = useForm<TSignUpForm>();
+    const onSubmit: SubmitHandler<TSignUpForm> = data => {console.log({ data }); handleSignUpWithEmail(data)}
+
+    console.log({ errors });
+
+
     return (
         <Container>
             <Grid container>
@@ -50,6 +45,7 @@ const SignUp = () => {
                             },
                         }}
                     >
+                        {/* <form onSubmit={handleSubmit(onSubmit)}> */}
                         <Box display="flex" justifyContent="center" flexDirection="column"
                             component="form"
                             noValidate
@@ -59,24 +55,38 @@ const SignUp = () => {
                             <Typography variant="h4">Inscription</Typography>
 
                             <Box>
-                                <TextField fullWidth label="Nom" variant="outlined" />
+                                <TextField fullWidth
+                                    error={Boolean(errors.lastName)}
+                                    label={"Nom" + (errors.lastName ? " (requis)" : "")}
+                                    variant="outlined" {...register("lastName", { required: true, maxLength: 20 })} />
                             </Box>
                             <Box>
-                                <TextField fullWidth label="Prenom" variant="outlined" />
+                                <TextField fullWidth
+                                    error={Boolean(errors.firstName)}
+                                    label={"Prenom" + (errors.firstName ? " (requis)" : "")}
+                                    variant="outlined" {...register("firstName")} />
                             </Box>
                             <Box>
-                                <TextField fullWidth label="Email" variant="outlined" />
+                                <TextField fullWidth
+                                    error={Boolean(errors.email)}
+                                    label="Email"
+                                    variant="outlined" {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ig })} />
                             </Box>
                             <Box>
-                                <TextField fullWidth label="Lien LinkedIn" variant="outlined" />
+                                <TextField fullWidth label="Lien LinkedIn" variant="outlined"  {...register("linkedIn")} />
                             </Box>
                             <Box>
-                                <TextField fullWidth label="Titre du profil" variant="outlined" />
+                                <TextField fullWidth label="Titre du profil" variant="outlined"  {...register("jobTitle", { required: true, minLength: 2 })} />
                             </Box>
                             <Grid container spacing={1}>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
                                         type={showPassword1 ? 'text' : 'password'}
+                                        error={Boolean(errors.password)}
+                                        helperText={errors.password?.type === "required" ? "Mot de passe requis"
+                                            : errors.password?.type === "minLength" ? "Minimum 8 caractères" : ""}
+                                        label="Mot de passe"
+                                        {...register("password", { required: true, minLength: 8 })}
                                         InputProps={{
                                             endAdornment: <InputAdornment position="end" >
                                                 <IconButton
@@ -87,11 +97,16 @@ const SignUp = () => {
                                                 </IconButton>
                                             </InputAdornment>,
                                         }}
-                                        fullWidth label="Mot de passe" variant="outlined" />
+                                        fullWidth variant="outlined" />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
                                         type={showPassword ? 'text' : 'password'}
+                                        error={Boolean(errors.passwordConfirm)}
+                                        helperText={errors.passwordConfirm?.type === "validate" ? "Les mots de passe ne correspondent pas"
+                                            : errors.passwordConfirm?.type === "required" ? "Confirmation requise"
+                                                : errors.passwordConfirm?.type === "minLength" ? "Minimum 8 caractères" : ""}
+                                        {...register("passwordConfirm", { required: true, minLength: 8, validate: (value) => value === watch("password") })}
                                         InputProps={{
                                             endAdornment: <InputAdornment position="end" >
                                                 <IconButton
@@ -107,12 +122,13 @@ const SignUp = () => {
                             </Grid>
                             <Box>
                                 <Button variant='contained'
-                                    onClick={() => handleSignUpWithEmail("ansarollmg+12@gmail.com", "password")}
+                                    onClick={handleSubmit(onSubmit)}
                                 >
                                     S'inscrire
                                 </Button>
                             </Box>
                         </Box>
+                        {/* </form> */}
                     </Box>
                 </Grid>
             </Grid>
@@ -121,4 +137,5 @@ const SignUp = () => {
     )
 }
 
+export type TSignUpForm = TUser & { password: string, passwordConfirm: string }
 export default SignUp

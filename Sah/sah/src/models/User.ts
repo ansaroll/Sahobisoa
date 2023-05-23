@@ -15,7 +15,7 @@ export type TUser = {
     website?: string;
     twitter?: string;
     facebook?: string;
-    linkedin?: string;
+    linkedIn?: string;
     instagram?: string;
     github?: string;
     youtube?: string;

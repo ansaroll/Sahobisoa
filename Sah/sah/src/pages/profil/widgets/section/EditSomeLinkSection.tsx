@@ -36,9 +36,9 @@ const EditSomeLinkSection = () => {
                         type="text"
                         fullWidth
                         label="Linkedin"
-                        value={userFormData?.linkedin}
+                        value={userFormData?.linkedIn}
                         inputProps={{ style: { textAlign: 'center' } }}
-                        onChange={(e) => setUserFormData({ ...user, linkedin: e.target.value })}
+                        onChange={(e) => setUserFormData({ ...user, linkedIn: e.target.value })}
                         InputProps={{
 							endAdornment: <>
 								<IconButton disableRipple>                                    
