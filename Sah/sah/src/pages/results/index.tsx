@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { JobTitle, ResultsTitle } from "../../components/styled/Atom";
+import { ResultsTitle } from "../../components/styled/Atom";
 import { SurveyContext, ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
 import { Box, Button, Card, CardActions, CardContent, CardMedia, CircularProgress, Container, Divider, Theme, Typography, useMediaQuery, useTheme } from "@mui/material";

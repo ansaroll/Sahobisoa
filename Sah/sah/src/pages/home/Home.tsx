@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { Box, Container, Divider, Grid, IconButton, InputAdornment, TextField, Theme, Typography, useMediaQuery } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { Freelances } from "../freelances/Freelances";

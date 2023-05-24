@@ -1,4 +1,3 @@
-import React from "react";
 import "./ProfilePage.css";
 import { Grid, useTheme, Divider, Box, Avatar } from "@mui/material";
 

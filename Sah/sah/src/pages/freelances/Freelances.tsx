@@ -1,26 +1,18 @@
 import { Container } from "@mui/system";
 import { Card } from "../../components/Card";
-import styled from "styled-components";
-import { useContext, useEffect } from "react";
-import { CircularProgress, Typography, Grid, Box } from "@mui/material";
+import { useContext } from "react";
+import { CircularProgress, Typography, Grid } from "@mui/material";
 import { ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
-import {
-  SurveyContainer,
-  QuestionContent,
-  LinkWrapper,
-} from "../../components/styled/Atom";
-
-const url = "https://i.pravatar.cc/500";
+import { SurveyContainer} from "../../components/styled/Atom";
 
 export const Freelances = () => {
   const { theme } = useContext(ThemeContext);
   const { data, isLoading } = useQuery<Array<Freelances>>(
     ["freelanceProfiles"],
-    () => {
-      return fetch(`https://cyan-juvenile-drain.glitch.me/freelances`).then((res) =>
-        res.json()
-      );
+    async () => {
+      const res = await fetch(`https://cyan-juvenile-drain.glitch.me/freelances`);
+      return await res.json();
     }
   );
 
