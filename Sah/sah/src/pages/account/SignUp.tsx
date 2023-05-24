@@ -1,6 +1,6 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material'
-import { Box, Button, Container, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material'
-import React, { useContext } from 'react'
+import { Box, Button, CircularProgress, Container, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material'
+import React, { useContext, useEffect } from 'react'
 import { ThemeContext } from '../../utils/context';
 import { useForm, SubmitHandler } from "react-hook-form";
 import useSignUp from './hooks/useSignUp';
@@ -21,13 +21,9 @@ const SignUp = () => {
         event.preventDefault();
     };
 
-    const { handleSignUpWithEmail } = useSignUp()
-
+    const { handleSignUpWithEmailMutation, isLoading } = useSignUp()
     const { register, handleSubmit, watch, formState: { errors }, } = useForm<TSignUpForm>();
-    const onSubmit: SubmitHandler<TSignUpForm> = data => {console.log({ data }); handleSignUpWithEmail(data)}
-
-    console.log({ errors });
-
+    const onSubmit: SubmitHandler<TSignUpForm> = data => { console.log({ data }); handleSignUpWithEmailMutation.mutateAsync(data) }
 
     return (
         <Container>
@@ -76,12 +72,16 @@ const SignUp = () => {
                                 <TextField fullWidth label="Lien LinkedIn" variant="outlined"  {...register("linkedIn")} />
                             </Box>
                             <Box>
-                                <TextField fullWidth label="Titre du profil" variant="outlined"  {...register("jobTitle", { required: true, minLength: 2 })} />
+                                <TextField fullWidth 
+                                error={Boolean(errors.jobTitle)}
+                                label={"Titre du profil" + (errors.jobTitle ? " (requis)" : "")}
+                                variant="outlined"  {...register("jobTitle", { required: true, minLength: 2 })} />
                             </Box>
                             <Grid container spacing={1}>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
                                         type={showPassword1 ? 'text' : 'password'}
+                                        autoComplete='new-password'
                                         error={Boolean(errors.password)}
                                         helperText={errors.password?.type === "required" ? "Mot de passe requis"
                                             : errors.password?.type === "minLength" ? "Minimum 8 caractères" : ""}
@@ -102,6 +102,7 @@ const SignUp = () => {
                                 <Grid item xs={12} sm={6}>
                                     <TextField
                                         type={showPassword ? 'text' : 'password'}
+                                        autoComplete='new-password'
                                         error={Boolean(errors.passwordConfirm)}
                                         helperText={errors.passwordConfirm?.type === "validate" ? "Les mots de passe ne correspondent pas"
                                             : errors.passwordConfirm?.type === "required" ? "Confirmation requise"
@@ -123,8 +124,11 @@ const SignUp = () => {
                             <Box>
                                 <Button variant='contained'
                                     onClick={handleSubmit(onSubmit)}
+                                    disabled={isLoading}
                                 >
-                                    S'inscrire
+                                    {
+                                        isLoading ? <CircularProgress size={24} /> : "S'inscrire"
+                                    }
                                 </Button>
                             </Box>
                         </Box>

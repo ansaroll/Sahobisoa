@@ -8,7 +8,7 @@ import { SurveyContainer} from "../../components/styled/Atom";
 
 export const Freelances = () => {
   const { theme } = useContext(ThemeContext);
-  const { data, isLoading } = useQuery<Array<Freelances>>(
+  const { data, isLoading } = useQuery<Array<any>>(
     ["freelanceProfiles"],
     async () => {
       const res = await fetch(`https://cyan-juvenile-drain.glitch.me/freelances`);
