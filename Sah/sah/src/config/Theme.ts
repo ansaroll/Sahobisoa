@@ -45,4 +45,17 @@ export const Theme:ThemeOptions ={
         body2: {
         },
     },
+    components: {
+        MuiFormControl: {            
+            styleOverrides: {
+                root: {
+                    "& .MuiFormLabel-root.MuiInputLabel-shrink": {
+                        zIndex: 10,
+                        fontWeight: 700,
+                        textShadow: "0px 0px 10px #ffffff"
+                    }
+                }
+            }
+        }
+    }
 }
