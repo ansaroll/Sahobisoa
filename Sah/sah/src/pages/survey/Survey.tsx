@@ -32,7 +32,7 @@ export const Survey = () => {
 
   const { isLoading, data } = useQuery({
     queryKey: ["survey"], queryFn: async () => {
-      const res = await fetch(`https://cyan-juvenile-drain.glitch.me/survey`);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/survey`);
       return await res.json();
     },
     refetchOnMount: true,
