@@ -3,8 +3,7 @@ import "./index.css";
 import { Theme } from "./config/Theme";
 import { DefaultTheme } from "./config/DefaultTheme";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Routes } from "./Routes";
-import { AllRoutes } from "./pages/Routes";
+import AppRoutes, { Routes } from "./Routes";
 import {
   QueryClient,
   QueryClientProvider,
@@ -15,7 +14,6 @@ import { store } from "./app/store"
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-
 //theme
 import "primereact/resources/themes/vela-blue/theme.css";
 //core
@@ -23,9 +21,9 @@ import "primereact/resources/primereact.min.css";
 //icons
 import "primeicons/primeicons.css";
 
-
 const queryClient = new QueryClient();
 export const App = () => {
+
   return (
     <>
       <ReduxProvider
@@ -36,12 +34,11 @@ export const App = () => {
             <ThemeDarkLightProvider>
               <SurveyProvider>
                 <ThemeProvider theme={createTheme({ ...DefaultTheme, ...Theme })}>
-                  <Routes routes={AllRoutes} />
+                  <AppRoutes />
                   <ToastContainer
                     position="top-center"
                     autoClose={5000}
                     hideProgressBar={false}
-                    // newestOnTop={false}
                     closeOnClick
                     rtl={false}
                     pauseOnFocusLoss
