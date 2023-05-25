@@ -37,8 +37,10 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start:dev": "NODE_ENV=development react-scripts start",
+    "start:prod": "NODE_ENV=production react-scripts start",
+    "build:dev": "NODE_ENV=development react-scripts build",
+    "build:prod": "NODE_ENV=production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
