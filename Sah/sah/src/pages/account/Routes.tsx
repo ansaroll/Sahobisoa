@@ -2,6 +2,7 @@ import { lazy } from 'react';
 
 const Register = lazy(() => import('./SignUp'));
 const Login = lazy(() => import('./Login'));
+const Logout = lazy(() => import('./Logout'));
 
 export const AccountRoutes = [
     {
@@ -11,5 +12,9 @@ export const AccountRoutes = [
     {
         path: '/login',
         element: <Login />
+    },
+    {
+        path: '/logout',
+        element: <Logout />
     }
 ]

@@ -18,6 +18,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../utils/context";
 import { useMediaQuery, Theme } from "@mui/material";
 import { Work } from "@mui/icons-material";
+import useLogin from "../utils/hooks/useLogin";
 
 const pages = [
   { name: "Profils", link: "/profil" },
@@ -36,8 +37,22 @@ const notLogedMenus = [
   }
 ];
 
+const loggedMenus = [
+  {
+    linkName: "Mon compte",
+    link: "/myprofil"
+  },
+  {
+    linkName: "Déconnexion",
+    link: "/logout"
+  }
+]  
+
 
 const Header = () => {
+
+  const { isLogged } = useLogin();
+  
   const isSmorDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
   );
@@ -178,7 +193,7 @@ const Header = () => {
               {theme === "light" ? "☀️" : "🌙"}
             </NightModeButton>
 
-            <Tooltip title="Open settings">
+            <Tooltip title="Open menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
@@ -199,7 +214,7 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {notLogedMenus.map((menu) => (
+              {(isLogged() ? loggedMenus : notLogedMenus).map((menu) => (
                 <MenuItem key={menu.linkName} onClick={() => handleClickMenu(menu.link)}>
                   <Typography textAlign="center">{menu.linkName}</Typography>
                 </MenuItem>

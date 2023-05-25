@@ -22,7 +22,7 @@ const useSignUp = () => {
     const saveUserMutation = useMutation((user: TSignUpForm) => addDoc(collection(db, "utilisateurs"), user), {
         onSuccess: (docRef, user) => {
             setMessage("Inscription réussie : " + user.lastName + " " + user.firstName + " " + user.email) 
-            console.log("Mutation réussie" , user);
+            window.location.href = "/myprofil"
         },
         onError: (error:any) => {
             setError("Mutation échouée" + error.toString())
