@@ -11,7 +11,7 @@ export const Freelances = () => {
   const { data, isLoading } = useQuery<Array<any>>(
     ["freelanceProfiles"],
     async () => {
-      const res = await fetch(`https://cyan-juvenile-drain.glitch.me/freelances`);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/freelances`);
       return await res.json();
     }
   );

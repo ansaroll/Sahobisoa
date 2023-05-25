@@ -50,7 +50,7 @@ const Home = () => {
               }}
               color="primary"
             >
-              MYCAREER.
+              MYCAREER
             </Typography>
           </Box>
 
