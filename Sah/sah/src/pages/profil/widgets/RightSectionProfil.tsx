@@ -7,6 +7,7 @@ import GenericDialog from '../../../components/dialog/GenericDialog'
 import EditContact from './EditContact'
 import { useAppSelector } from '../../../app/hooks'
 import BtnEdit from './section/BtnEdit'
+import { useLocation } from 'react-router-dom'
 
 const RightSectionProfil = () => {
 
