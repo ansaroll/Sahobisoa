@@ -70,9 +70,10 @@ const Shell = () => {
   const location = useLocation()
 
   const currentPath = useMemo(() => location.pathname, [location])
+  const { isLogged , currentUser } = useLogin();
 
-  const { isLogged } = useLogin();
-
+  console.log("currentUser", currentUser);
+  
   useEffect(() => {
     console.log("currentPath", currentPath);
     if (!isLogged() && loggedRoutes.includes(currentPath) && currentPath !== "/login") {
