@@ -1,10 +1,9 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 import "./index.css";
 import { Theme } from "./config/Theme";
 import { DefaultTheme } from "./config/DefaultTheme";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Routes } from "./Routes";
-import { AllRoutes } from "./pages/Routes";
 import {
   QueryClient,
   QueryClientProvider,
@@ -15,17 +14,19 @@ import { store } from "./app/store"
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-
 //theme
 import "primereact/resources/themes/vela-blue/theme.css";
 //core
 import "primereact/resources/primereact.min.css";
 //icons
 import "primeicons/primeicons.css";
-
+import { AllRoutes } from "./pages/Routes";
+import useLogin from "./utils/hooks/useLogin";
+import { useEffect, useMemo } from "react";
 
 const queryClient = new QueryClient();
 export const App = () => {
+
   return (
     <>
       <ReduxProvider
@@ -36,12 +37,11 @@ export const App = () => {
             <ThemeDarkLightProvider>
               <SurveyProvider>
                 <ThemeProvider theme={createTheme({ ...DefaultTheme, ...Theme })}>
-                  <Routes routes={AllRoutes} />
+                  <Shell />
                   <ToastContainer
                     position="top-center"
                     autoClose={5000}
                     hideProgressBar={false}
-                    // newestOnTop={false}
                     closeOnClick
                     rtl={false}
                     pauseOnFocusLoss
@@ -58,3 +58,34 @@ export const App = () => {
     </>
   );
 };
+
+const loggedRoutes = [
+  "/myprofil",
+  "/logout",
+  "/survey/1",
+]
+
+const Shell = () => {
+
+  const location = useLocation()
+
+  const currentPath = useMemo(() => location.pathname, [location])
+
+  const { isLogged } = useLogin();
+
+  useEffect(() => {
+    console.log("currentPath", currentPath);
+    if (!isLogged() && loggedRoutes.includes(currentPath) && currentPath !== "/login") {
+      window.location.href = "/login"
+    }
+  }, [currentPath, isLogged, loggedRoutes, window.location])
+
+  if (!isLogged() && loggedRoutes.includes(currentPath)) {
+    return <></>
+  }
+  return (
+    <>
+      <Routes routes={AllRoutes} />
+    </>
+  )
+}

@@ -4,7 +4,6 @@ import { AccessTime, Home } from "@mui/icons-material";
 import RightSectionProfil from "./widgets/RightSectionProfil";
 import LeftSectionProfil from "./widgets/LeftSectionProfil";
 // PrimeReact
-import { Rating } from "primereact/rating";
 import GenericDialog from "../../components/dialog/GenericDialog";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";

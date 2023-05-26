@@ -4,5 +4,5 @@ export const Routes = ({ routes }: { routes: SahRouteProps[] }) => useRoutes(rou
 
 export type SahRouteProps = RouteObject & {
     children?: SahRouteProps[],
-    disableScrollTopOnChange?: boolean
+    disableScrollTopOnChange?: boolean,
 }

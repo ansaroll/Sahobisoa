@@ -18,6 +18,7 @@
     "@types/react-dom": "^18.0.0",
     "@types/styled-components": "^5.1.26",
     "animate.css": "^4.1.1",
+    "env-cmd": "^10.1.0",
     "faker": "^6.6.6",
     "firebase": "^9.17.2",
     "moment": "^2.29.4",
@@ -37,10 +38,10 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start:dev": "NODE_ENV=development react-scripts start",
-    "start:prod": "NODE_ENV=production react-scripts start",
-    "build:dev": "NODE_ENV=development react-scripts build",
-    "build:prod": "NODE_ENV=production react-scripts build",
+    "start:dev": "env-cmd -f .env.development react-scripts start",
+    "start:prod": "env-cmd -f .env.production react-scripts start",
+    "build:dev": "env-cmd -f .env.development react-scripts build",
+    "build:prod": "env-cmd -f .env.production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,6 +1,6 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { Box, Button, CircularProgress, Container, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { ThemeContext } from '../../utils/context';
 import { useForm, SubmitHandler } from "react-hook-form";
 import useSignUp from './hooks/useSignUp';

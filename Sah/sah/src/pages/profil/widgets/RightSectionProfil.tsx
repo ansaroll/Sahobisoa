@@ -1,14 +1,13 @@
-import { Email, LocationCity, Phone } from '@mui/icons-material'
+import { Email, Phone } from '@mui/icons-material'
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import SectionItem from './SectionItem'
 import SomeLinkSection from './section/SomeLinkSection'
 import GenericDialog from '../../../components/dialog/GenericDialog'
-import EditDescription from './EditDescription'
-import { useLocation } from 'react-router-dom'
 import EditContact from './EditContact'
 import { useAppSelector } from '../../../app/hooks'
 import BtnEdit from './section/BtnEdit'
+import { useLocation } from 'react-router-dom'
 
 const RightSectionProfil = () => {
 

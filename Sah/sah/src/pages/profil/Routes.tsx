@@ -5,10 +5,12 @@ const Profil = lazy(() => import('./Profil'));
 export const ProfilRoutes = [
     {
         path: '/profil',
-        element: <Profil />
+        element: <Profil />,
+        isPrivate: true
     },
     {
         path: '/myprofil',
-        element: <Profil />
+        element: <Profil />,
+        isPrivate: true
     }
 ]

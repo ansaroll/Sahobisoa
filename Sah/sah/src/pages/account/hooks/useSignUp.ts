@@ -1,11 +1,10 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React, { useCallback, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { auth, db } from '../../../firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import { TSignUpForm } from '../SignUp';
 import { toast } from 'react-toastify';
-import { useMutation, useQuery } from '@tanstack/react-query';
-import { Freelances } from '../../freelances/Freelances';
+import { useMutation } from '@tanstack/react-query';
 
 const useSignUp = () => {
 
@@ -22,7 +21,7 @@ const useSignUp = () => {
     const saveUserMutation = useMutation((user: TSignUpForm) => addDoc(collection(db, "utilisateurs"), user), {
         onSuccess: (docRef, user) => {
             setMessage("Inscription réussie : " + user.lastName + " " + user.firstName + " " + user.email) 
-            console.log("Mutation réussie" , user);
+            window.location.href = "/myprofil"
         },
         onError: (error:any) => {
             setError("Mutation échouée" + error.toString())
