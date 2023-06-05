@@ -4,10 +4,16 @@ import { useContext } from "react";
 import { CircularProgress, Typography, Grid } from "@mui/material";
 import { ThemeContext } from "../../utils/context";
 import { useQuery } from "@tanstack/react-query";
-import { SurveyContainer} from "../../components/styled/Atom";
+import { SurveyContainer } from "../../components/styled/Atom";
+import useFreelance from "../../utils/hooks/useFreelance";
 
 export const Freelances = () => {
   const { theme } = useContext(ThemeContext);
+
+  const { queryResult } = useFreelance("344");
+  const { data: free, isLoading: isFreeLoading } = queryResult;
+
+  console.log({ free });
   const { data, isLoading } = useQuery<Array<any>>(
     ["freelanceProfiles"],
     async () => {
@@ -16,7 +22,7 @@ export const Freelances = () => {
     }
   );
 
-  if (isLoading) {
+  if (isLoading || isFreeLoading) {
     return (
       <SurveyContainer data-testid="loader">
         <CircularProgress sx={{ mt: 15 }} />
@@ -39,15 +45,15 @@ export const Freelances = () => {
         alignItems="center"
         alignContent="center"
       >
-        {data && data?.map((profile, index) => (
+        {data && free?.map((profile, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card
-            key={`${profile.name}-${index}`}
-            label={profile.job}
-            picture={profile.picture}
-            title={profile.name}
-            isActive={profile.isActive}
-          />
+              key={`${profile.name}-${index}`}
+              label={profile.jobTitle}
+              picture={profile.picture}
+              title={profile.lastName}
+              isActive={profile.isActive}
+            />
           </Grid>
         ))}
       </Grid>

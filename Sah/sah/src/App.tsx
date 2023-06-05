@@ -71,7 +71,10 @@ const Shell = () => {
 
   const currentPath = useMemo(() => location.pathname, [location])
 
-  const { isLogged } = useLogin();
+  const { isLogged , currentUser } = useLogin();
+
+  console.log("currentUser", currentUser());
+  
 
   useEffect(() => {
     console.log("currentPath", currentPath);

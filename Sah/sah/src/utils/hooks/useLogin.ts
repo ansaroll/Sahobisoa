@@ -7,8 +7,12 @@ const useLogin = () => {
     const isLogged = useCallback(() => {
         // TODO: verify if the user is connected or not in real time on Firebase
         return Boolean(auth.currentUser)
-    }, [auth.currentUser])
-    return { isLogged }
+    }, [])
+
+    const currentUser = useCallback(() => {
+        return auth.currentUser
+    }, [])
+    return { isLogged , currentUser }
 }
 
 export default useLogin
