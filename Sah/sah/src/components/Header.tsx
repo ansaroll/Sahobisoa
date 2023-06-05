@@ -53,7 +53,7 @@ const Header = () => {
 
   const { isLogged , currentUser } = useLogin();
 
-  console.log("currentUser photpUrl", currentUser?.photoURL);
+  console.log("currentUser photpUrl", currentUser()?.photoURL);
   
   
   const isSmorDown = useMediaQuery((theme: Theme) =>
@@ -198,7 +198,7 @@ const Header = () => {
 
             <Tooltip title="Open menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar src={currentUser?.photoURL!} />
+                <Avatar src={currentUser()?.photoURL?.toString()} />
               </IconButton>
             </Tooltip>
             <Menu
