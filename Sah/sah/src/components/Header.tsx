@@ -51,7 +51,10 @@ const loggedMenus = [
 
 const Header = () => {
 
-  const { isLogged } = useLogin();
+  const { isLogged , currentUser } = useLogin();
+
+  console.log("currentUser photpUrl", currentUser?.photoURL);
+  
   
   const isSmorDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
@@ -195,7 +198,7 @@ const Header = () => {
 
             <Tooltip title="Open menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar src={currentUser?.photoURL!} />
               </IconButton>
             </Tooltip>
             <Menu
