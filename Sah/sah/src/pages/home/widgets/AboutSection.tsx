@@ -1,9 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material'
-import React from 'react'
-import CustomSwipper from '../../../components/atom/CustomSwipper'
-import { SwiperSlide } from 'swiper/react'
 import WeandYouItem from './WeanYouItem'
-import { Handshake, Handyman } from '@mui/icons-material'
+import { Handyman } from '@mui/icons-material'
 
 const AboutSection = () => {
     return (

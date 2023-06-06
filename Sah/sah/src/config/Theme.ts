@@ -1,5 +1,4 @@
 import { ThemeOptions } from "@mui/material";
-import { useContext } from "react";
 
 export const Theme:ThemeOptions ={
     palette: {

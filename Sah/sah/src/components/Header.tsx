@@ -25,7 +25,6 @@ const pages = [
   { name: "Freelances", link: "/freelances" },
   { name: "Survey", link: "/survey/1" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const notLogedMenus = [
   {
     linkName: "Se connecter",

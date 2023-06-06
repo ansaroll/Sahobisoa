@@ -88,7 +88,7 @@ const Results = () => {
             results?.map((result: any, index: number) => (
               <span
                 style={{
-                  backgroundColor: theme == "dark" ? themeGlobal.palette.secondary.main : themeGlobal.palette.primary.light,
+                  backgroundColor: theme === "dark" ? themeGlobal.palette.secondary.main : themeGlobal.palette.primary.light,
                   marginInline: 5,
                   paddingInline: 5,
                   borderRadius: 5,
@@ -122,7 +122,7 @@ const Results = () => {
                   onSlideChange={() => console.log('slide change')}
                   onSwiper={(swiper) => console.log(swiper)}
                 >
-                  {freelances?.filter(i => i.jobType == result.title).map((freelance) => {
+                  {freelances?.filter(i => i.jobType === result.title).map((freelance) => {
 
                     return (
                       <SwiperSlide

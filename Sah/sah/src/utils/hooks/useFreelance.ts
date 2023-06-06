@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { db } from "../../firebase";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { useQuery } from "@tanstack/react-query";
 
 const useFreelance = (id: string) => {
@@ -14,7 +14,7 @@ const useFreelance = (id: string) => {
             });
 
         } else {
-            throw new Error("No such document!");
+                throw new Error("No such document!");
         }
     }, [colRef]);
 

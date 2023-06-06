@@ -79,7 +79,7 @@ const Shell = () => {
     if (!isLogged() && loggedRoutes.includes(currentPath) && currentPath !== "/login") {
       window.location.href = "/login"
     }
-  }, [currentPath, isLogged, loggedRoutes, window.location])
+  }, [currentPath, isLogged])
 
   if (!isLogged() && loggedRoutes.includes(currentPath)) {
     return <></>

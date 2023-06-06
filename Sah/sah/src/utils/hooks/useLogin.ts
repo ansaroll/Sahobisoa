@@ -1,6 +1,5 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { auth } from "../../firebase";
-import { useLocation } from "react-router";
 
 // function to verify if the user is connected or not in real time on Firebase
 const useLogin = () => {

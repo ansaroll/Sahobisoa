@@ -43,7 +43,7 @@ export const NightModeButton = styled.button`
   color: ${colors.secondary};
 `;
 
-const ResultsContainer = styled.div<{ theme: string }>`
+export const ResultsContainer = styled.div<{ theme: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;

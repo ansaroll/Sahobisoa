@@ -1,10 +1,8 @@
-import { Edit, LocationCity } from '@mui/icons-material'
-import { Box, Button, Grid, IconButton, Typography } from '@mui/material'
+import { Button, Grid, Typography } from '@mui/material'
 import React from 'react'
 import SectionItem from './SectionItem'
 import SkilItem from './SkilItem'
 import Experiences from './section/Experiences'
-import { useLocation } from 'react-router-dom'
 import { useAppSelector } from '../../../app/hooks'
 import GenericDialog from '../../../components/dialog/GenericDialog'
 import EditDescription from './EditDescription'
@@ -12,9 +10,7 @@ import BtnEdit from './section/BtnEdit'
 
 const LeftSectionProfil = () => {
 
-    const location = useLocation();
     const user = useAppSelector((state) => state.user?.value)
-    const onEdit = location.pathname.includes("myprofil");
     const [openEditProfil, setOpenEditProfil] = React.useState(false)
 
     return (
@@ -51,7 +47,7 @@ const LeftSectionProfil = () => {
                     <Typography>
                         {'- ' + user?.bio}
                     </Typography>
-                    
+
                     <BtnEdit onClick={setOpenEditProfil} />
                 </>
             </SectionItem >

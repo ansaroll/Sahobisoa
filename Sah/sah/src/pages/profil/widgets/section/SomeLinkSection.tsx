@@ -1,17 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import SectionItem from '../SectionItem'
-import { Box, Button, Typography } from '@mui/material'
+import { Button } from '@mui/material'
 import IconAndText from '../../../../components/atom/IconAndText'
 import { Facebook, GitHub, LinkedIn } from '@mui/icons-material'
 import EditSomeLinkSection from './EditSomeLinkSection'
 import GenericDialog from '../../../../components/dialog/GenericDialog'
-import { useLocation } from 'react-router-dom'
 import BtnEdit from './BtnEdit'
 
 const SomeLinkSection = () => {
     const [openEditProfil, setOpenEditProfil] = useState(false);
-    const location = useLocation();
-    const onEdit = location.pathname.includes("myprofil");
 
     return (
         <>

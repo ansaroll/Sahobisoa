@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
 import postsReducer from "../features/posts/postReducer";
 import commentsReducer from "../features/comments/commentReducer";
 import userReducer from "../features/user/userReducer";
