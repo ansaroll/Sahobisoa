@@ -25,7 +25,6 @@ const pages = [
   { name: "Freelances", link: "/freelances" },
   { name: "Survey", link: "/survey/1" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const notLogedMenus = [
   {
     linkName: "Se connecter",
@@ -51,7 +50,10 @@ const loggedMenus = [
 
 const Header = () => {
 
-  const { isLogged } = useLogin();
+  const { isLogged , currentUser } = useLogin();
+
+  console.log("currentUser photpUrl", currentUser()?.photoURL);
+  
   
   const isSmorDown = useMediaQuery((theme: Theme) =>
     theme.breakpoints.down("sm")
@@ -149,7 +151,7 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon
+          <Work
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
             onClick={() => navigate("/")}
           />
@@ -170,7 +172,7 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
-            SAH
+            MYC
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -195,7 +197,7 @@ const Header = () => {
 
             <Tooltip title="Open menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar src={currentUser()?.photoURL?.toString()} />
               </IconButton>
             </Tooltip>
             <Menu

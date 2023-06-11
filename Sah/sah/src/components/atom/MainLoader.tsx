@@ -1,6 +1,5 @@
 import { Work } from '@mui/icons-material'
-import { Box, LinearProgress, Typography } from '@mui/material'
-import React from 'react'
+import { Box, LinearProgress } from '@mui/material'
 import IconAndText from './IconAndText'
 import 'animate.css';
 

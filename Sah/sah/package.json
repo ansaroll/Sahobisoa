@@ -21,6 +21,7 @@
     "env-cmd": "^10.1.0",
     "faker": "^6.6.6",
     "firebase": "^9.17.2",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "primeicons": "^6.0.1",
     "primereact": "^9.2.0",
@@ -64,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.195",
     "msw": "^1.0.0"
   }
 }

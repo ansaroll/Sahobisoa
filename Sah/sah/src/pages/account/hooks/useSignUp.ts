@@ -5,6 +5,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { TSignUpForm } from '../SignUp';
 import { toast } from 'react-toastify';
 import { useMutation } from '@tanstack/react-query';
+import { omit } from 'lodash';
 
 const useSignUp = () => {
 
@@ -18,7 +19,7 @@ const useSignUp = () => {
         if (message) { toast.success(message); setMessage(null); }
     }, [message])
 
-    const saveUserMutation = useMutation((user: TSignUpForm) => addDoc(collection(db, "utilisateurs"), user), {
+    const saveUserMutation = useMutation((user: TSignUpForm) => addDoc(collection(db, "utilisateurs"), omit(user,["password" , "passwordConfirm"])), {
         onSuccess: (docRef, user) => {
             setMessage("Inscription réussie : " + user.lastName + " " + user.firstName + " " + user.email) 
             window.location.href = "/myprofil"
@@ -34,7 +35,7 @@ const useSignUp = () => {
             onSuccess: (userCredential , user) => {
                 // Signed in 
                 const userInstance = userCredential.user;
-                saveUserMutation.mutateAsync(user);
+                saveUserMutation.mutateAsync(user)
             },
             onError : (error:any) => {
                 setError("Erreur lors de la création du compte" + error.message)

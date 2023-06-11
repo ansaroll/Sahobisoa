@@ -1,10 +1,7 @@
 import {
-  Box,
   Button,
   CircularProgress,
   Container,
-  Grow,
-  IconButton,
   Slide,
   Typography,
 } from "@mui/material";
@@ -76,15 +73,15 @@ export const Survey = () => {
             <Slide
               style={{
                 overflow: "hidden",
-                zIndex: parseInt(index) + 1 == questionNumberInt ? 10 : 1,
-                opacity: parseInt(index) + 1 == questionNumberInt ? 1 : 0.6
+                zIndex: parseInt(index) + 1 === questionNumberInt ? 10 : 1,
+                opacity: parseInt(index) + 1 === questionNumberInt ? 1 : 0.6
               }}
               timeout={{
                 enter: 3000,
                 exit: 100,
               }}
               direction="left"
-              in={parseInt(index) + 1 == questionNumberInt}
+              in={parseInt(index) + 1 === questionNumberInt}
               unmountOnExit
               container={containerRef.current}
             >
@@ -142,5 +139,3 @@ export const Survey = () => {
 };
 
 export default Survey;
-
-type TSurvey = {};

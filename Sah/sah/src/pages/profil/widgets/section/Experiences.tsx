@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from '@mui/material'
 import SectionItem from '../SectionItem'
-import { CalendarMonth, CalendarMonthOutlined, WorkOutline } from '@mui/icons-material'
+import { CalendarMonthOutlined, WorkOutline } from '@mui/icons-material'
 import moment from 'moment'
 
 const Experiences = () => {

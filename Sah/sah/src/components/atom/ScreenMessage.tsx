@@ -1,7 +1,5 @@
-import { Work } from '@mui/icons-material'
-import { Box, LinearProgress, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import React from 'react'
-import IconAndText from './IconAndText'
 
 const ScreenMessage = ({children}:Props) => {
     return (

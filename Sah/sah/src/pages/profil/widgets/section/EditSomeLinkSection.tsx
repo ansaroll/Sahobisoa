@@ -1,13 +1,12 @@
 import { Grid, IconButton, TextField } from '@mui/material'
 import React from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
+import { useAppSelector } from '../../../../app/hooks'
 import { TUser } from '../../../../models/User'
 import { Facebook, GitHub, Instagram, LinkedIn, Portrait, Twitter } from '@mui/icons-material'
 
 const EditSomeLinkSection = () => {
 
     const user = useAppSelector((state) => state.user?.value)
-    const dispatch = useAppDispatch()
 
     const [userFormData, setUserFormData] = React.useState<TUser>(user)
 
