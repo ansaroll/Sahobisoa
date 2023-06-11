@@ -23,6 +23,7 @@ import "primeicons/primeicons.css";
 import { AllRoutes } from "./pages/Routes";
 import useLogin from "./utils/hooks/useLogin";
 import { useEffect, useMemo } from "react";
+import Shell from "./utils/Shell";
 
 const queryClient = new QueryClient();
 export const App = () => {
@@ -58,35 +59,3 @@ export const App = () => {
     </>
   );
 };
-
-const loggedRoutes = [
-  "/myprofil",
-  "/logout",
-  "/survey/1",
-]
-
-const Shell = () => {
-
-  const location = useLocation()
-
-  const currentPath = useMemo(() => location.pathname, [location])
-  const { isLogged , currentUser } = useLogin();
-
-  console.log("currentUser", currentUser);
-  
-  useEffect(() => {
-    console.log("currentPath", currentPath);
-    if (!isLogged() && loggedRoutes.includes(currentPath) && currentPath !== "/login") {
-      window.location.href = "/login"
-    }
-  }, [currentPath, isLogged])
-
-  if (!isLogged() && loggedRoutes.includes(currentPath)) {
-    return <></>
-  }
-  return (
-    <>
-      <Routes routes={AllRoutes} />
-    </>
-  )
-}

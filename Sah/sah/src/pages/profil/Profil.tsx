@@ -26,7 +26,7 @@ const Profil = () => {
 							<Badge color="secondary" overlap="circular" badgeContent="Nouveau" >
 								<Avatar
 									alt="Profil Images"
-									src="./assets/profil/sahprofil.png"
+									src={user?.avatarUrl}
 									sx={{ width: 200, height: 200 }}
 								/>
 							</Badge>

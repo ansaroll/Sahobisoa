@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 const useFreelance = (id: string) => {
     const colRef = collection(db, "utilisateurs");
 
-    const getFreelance = useCallback(async () => {
+    const queryFreelances = useQuery<Array<any>>(["utilisateurs", id], useCallback(async () => {
         const docsSnapshot = await getDocs(colRef)
         if (!docsSnapshot.empty) {
             return docsSnapshot.docs.map((doc) => {
@@ -16,11 +16,9 @@ const useFreelance = (id: string) => {
         } else {
                 throw new Error("No such document!");
         }
-    }, [colRef]);
+    }, [colRef]));
 
-    const queryResult = useQuery<Array<any>>(["utilisateurs", id], getFreelance);
-
-    return { queryResult };
+    return { queryFreelances };
 };
 
 export default useFreelance;

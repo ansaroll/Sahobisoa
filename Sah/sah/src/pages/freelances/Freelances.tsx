@@ -10,19 +10,11 @@ import useFreelance from "../../utils/hooks/useFreelance";
 export const Freelances = () => {
   const { theme } = useContext(ThemeContext);
 
-  const { queryResult } = useFreelance("344");
-  const { data: free, isLoading: isFreeLoading } = queryResult;
+  const { queryFreelances } = useFreelance("344");
+  const { data: free, isLoading: isFreeLoading } = queryFreelances;
 
   console.log({ free });
-  const { data, isLoading } = useQuery<Array<any>>(
-    ["freelanceProfiles"],
-    async () => {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/freelances`);
-      return await res.json();
-    }
-  );
-
-  if (isLoading || isFreeLoading) {
+  if (isFreeLoading) {
     return (
       <SurveyContainer data-testid="loader">
         <CircularProgress sx={{ mt: 15 }} />
@@ -45,7 +37,7 @@ export const Freelances = () => {
         alignItems="center"
         alignContent="center"
       >
-        {data && free?.map((profile, index) => (
+        {free && free?.map((profile, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card
               key={`${profile.name}-${index}`}

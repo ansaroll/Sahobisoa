@@ -1,27 +1,11 @@
 import { Box, Button, Chip, Container, Dialog, DialogContent, DialogContentText, DialogTitle, Divider, Grid, Paper, TextField, Typography } from '@mui/material'
 import React from 'react'
-import { auth, providerAutGoogle } from '../../firebase'
-import { signInWithPopup  } from "firebase/auth"
 import { Verified } from '@mui/icons-material'
+import useLogin from '../../utils/hooks/useLogin'
 const Login = () => {
 
+    const { signIn } = useLogin()
     const [user, setUser] = React.useState<TUser | undefined>(undefined)
-
-    const handleSignIn = () => {
-        signInWithPopup(auth, providerAutGoogle)
-            .then((result) => {
-                // Connexion réussie
-                const user = result.user;
-                setUser(v => ({ ...v, displayName: user.displayName || "" }))
-                console.log("Connecté avec succès en tant que", user.displayName);
-            })
-            .catch((error) => {
-                // Erreur de connexion
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log("Erreur de connexion", errorMessage, errorCode);
-            });
-    };
 
     return (
         <Container>
@@ -63,7 +47,7 @@ const Login = () => {
                                 </Divider>
                             </Box>
                             <Box alignSelf="left">
-                                <Button variant='contained' onClick={handleSignIn} fullWidth>
+                                <Button variant='contained' onClick={signIn} fullWidth>
                                     <img src="https://img.icons8.com/color/24/000000/google-logo.png" /> &nbsp; Se connecter avec Google
                                 </Button>
                             </Box>

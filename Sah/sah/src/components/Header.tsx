@@ -151,7 +151,7 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon
+          <Work
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
             onClick={() => navigate("/")}
           />
@@ -172,7 +172,7 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
-            SAH
+            MYC
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
